@@ -5,8 +5,6 @@
 \usepackage{xcolor}
 \usepackage{grbbridge}
 \setboolean{spellten}{true}
-% \setboolean{leadingspace}{true}
-% \setboolean{betweencards}{true}
 \usepackage{url}
 \newcommand{\gap}{\vspace{\baselineskip}}
 \newcommand{\hcp}{\textsc{hcp}}
@@ -26,17 +24,10 @@
 All strong hands are opened \cl{1} which is forcing for one round. In
 general, a major suit opening shows 5+-cards and the higher ranking
 suit is opened with suits of equal length. A no-trump opening shows a
-balanced hand with a possible 5-card minor.
-
-A \di{1} bid is limited and denies a 5-card major or a good quality
-5-card club suit. Therefore, it is possible that opener has only a
-doubleton diamond holding a hand such as \hhand{AQJT,KQ,76,J7642} or
-\hhand{AKT9,AK98,432,32}. In the first case, \cl{2} is not possible
-because of the weak suit and \nt{1} is unattractive in both cases (in
-the latter case, the \di{1} bid allows an immediate search for a major
-suit fit). A 5-card major could be suppressed in exceptional cases
-such as \hhand{AKQT5,AJ,JT9432,} when \di{1} should be followed by a
-jump shift in \sp{} to show the fine 6-5 hand.
+balanced hand with a possible 5-card minor. A \di{1} opening normally
+shows a 3-card holding but could sometimes be made with a doubleton
+when bidding \nt{1} or \cl{2} is unattractive e.g.,
+\hhand{AQJT,KQ,76,J7642} or \hhand{AKT9,AK98,432,32}.
 
 \begin{longtable}{ p{2.5cm}p{8.5cm} }
   \hline
@@ -192,7 +183,7 @@ a jump in a suit with 22+\hcp. Further bidding is largely natural.
              \cl{2}, \di{2} & 5-7\hcp, 5-card suit, denies 3-card support. \\
              \emph{Single raise} & 2-4\hcp\ with 3+-card support. \\
              \emph{Double raise} & 5-7\hcp\ with 4+-card support \\
-             {\color{blue}\emph{Game raise}} & {\color{blue}8+\hcp, god hand, 4+-card support.} \\
+             {\color{blue}\emph{Game raise}} & {\color{blue}8+\hcp, good hand, 4+-card support.} \\
            \end{tabular} \\
   \cl{2}, \di{2} & 5+-card suit, may have a 4-card major,
                    non-forcing. Responder's rebids are: \\
@@ -382,8 +373,8 @@ the appropriate game contract.
   \nt{1} & $\beta$ \emph{control asking bid}. \hyperlink{controlask}{\HandCuffRight} \\
   \emph{Single raise} & Suit fit but not a great hand since $\beta$
                                   wasn't used. \\
-  \nt{2} & $\beta$ \hyperlink{controlask}{\HandCuffRight} over
-           \cl{2}/\di{2}; Natural, no 5-card suit over \he{1}/\sp{1}. \\
+  \nt{2} & {\color{blue} $\beta$ \hyperlink{controlask}{\HandCuffRight} over
+           \cl{2}/\di{2}}; Natural, no 5-card suit over \he{1}/\sp{1}. \\
   \sp{3}, \cl{4}, \di{4}, \he{4} & \emph{Splinter} bid 4-card fit
                                    promised. \\
   \nt{4} & \emph{RKC Blackwood}---see \ref{blackwood}. \\
@@ -418,6 +409,10 @@ fit is found.
 \begin{longtable}{ p{2.5cm}p{8.5cm}  }
   \hline
   \emph{Pass} & 0-7\hcp. \\
+  \nt{1} & 8-10\hcp, balanced, no 4-card major. \\
+  \sp{1} &  8-15\hcp, 4-card \sp{}, denies 4-card \he{},
+           \underline{forcing} for one round. Opener's rebids have the
+           same structure as over \he{1}. \\
   \he{1} & 8-15\hcp, 4-card \he{}, may have 4-card \sp{},
            \underline{forcing} for one round. Opener rebids: \\
               & \begin{tabular}{p{1.5cm}p{7cm}}
@@ -454,10 +449,6 @@ fit is found.
                   \cl{3} & 15\hcp, unbalanced, at least 5-5 in minors, no
                            4-card major. \\
                 \end{tabular} \\
-  \sp{1} &  8-15\hcp, 4-card \sp{}, denies 4-card \he{},
-           \underline{forcing} for one round. Opener's rebids have the
-           same structure as over \he{1}. \\
-  \nt{1} & 8-10\hcp, balanced, no 4-card major. \\
   \cl{2}, \di{2} & 11-15\hcp, 4+-card suit, no 4-card major,
                    \underline{forcing}. Opener's rebids are: \\
               & \begin{tabular}{ll}
@@ -1026,8 +1017,8 @@ in the void suit in steps.
 \end{longtable}
 
 \subsection{$\beta$ Control Asking Bid}
-\label{controlask}
 
+\hypertarget{controlask}
 A $\beta$ control asking bid can occur either after a \nt{1} rebid by
 the \cl{1} opener over a positive suit response or by cue bidding a
 singleton suit after a positive response of \cl{3}, \di{3}, \he{3},
@@ -1099,6 +1090,7 @@ right-hand opponent makes a suit overcall at the two-level.
            suit. \\
   \hline
 \end{longtable}
+
 \section{Miscellaneous}
 
 \emph{High-card Points} (\hcp) are assigned as follows---Ace: 4, King:
