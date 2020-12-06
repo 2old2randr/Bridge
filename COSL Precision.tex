@@ -24,13 +24,14 @@
 \tableofcontents
 
 \section{Opening Bids}
-All strong hands are opened \cl{1} which is forcing for one round. In
-general, a major suit opening shows 5+-cards and the higher ranking
-suit is opened with suits of equal length. A no-trump opening shows a
-balanced hand with a possible 5-card minor. A \di{1} opening normally
-shows a 3-card holding but could sometimes be made with a doubleton
-when bidding \nt{1} or \cl{2} is unattractive e.g.,
-\hhand{AQJT,KQ,76,J7642} or \hhand{AKT9,AK98,432,32}.
+All strong hands ({\color{blue}with one exception}\footnote{Balanced
+  22-23 point hands are opened \nt{2}.}) are opened \cl{1} which is
+forcing for one round. In general, a major suit opening shows 5+-cards
+and the higher ranking suit is opened with suits of equal length. A
+no-trump opening shows a balanced hand with a possible 5-card minor. A
+\di{1} opening normally shows a 3-card holding but could sometimes be
+made with a doubleton when bidding \nt{1} or \cl{2} is unattractive
+e.g., \hhand{AQJT,KQ,76,J7642} or \hhand{AKT9,AK98,432,32}.
 
 \begin{longtable}{ p{1.5cm}p{9.5cm} }
   \hline
@@ -53,8 +54,9 @@ when bidding \nt{1} or \cl{2} is unattractive e.g.,
                  and 7 non-vulnerable). With 6 or less losers, open
                  \sp{1}/\he{}/\di{}. \hyperlink{2major}{\HandCuffRight}
   \\
-  \nt{2} & 6-12\hcp, 5-5 or better in minors, limited
-           strength. \hyperlink{2nt}{\HandCuffRight} \\
+  {\color{blue} \nt{2}}& {\color{blue}22-23\hcp, balanced hand (no
+                         5-card suit).
+                         \hyperlink{2nt}{\HandCuffRight}} \\
   \emph{3 of suit} & 8-10\hcp, 7+-card suit (\sq\ of 9
                      when vulnerable and 8 non-vulnerable). Apply rule of
                      2/3/4. \hyperlink{3preempt}{\HandCuffRight}
@@ -182,7 +184,7 @@ a jump in a suit with 22+\hcp. Further bidding is largely natural.
              \emph{Pass} & 0-3\hcp. \\
              \cl{3} & 4-7\hcp, \emph{Stayman} {\color{blue}(implies 4-card major)}.
                       \hyperlink{stayman}{\HandCuffRight} \\
-             \di{3}/\he{} & $<8$\hcp, transfer to \he{3}/\sp{} respectively. \\
+             \di{3}/\he{} & $<$8\hcp, transfer to \he{3}/\sp{} respectively. \\
              \sp{3} & Transfer to minors. \\
              \nt{3} & 4-5\hcp, sign-off. \\
              \cl{4} & \emph{Gerber} ace-asking.
@@ -228,7 +230,8 @@ a jump in a suit with 22+\hcp. Further bidding is largely natural.
              {\color{blue}\emph{Jump \nt{}}} & {\color{blue}4-7\hcp\
                                                maximum, spread values, no support.} \\
            \end{tabular} \\
-  \he{3} & 25+\hcp, balanced hand, \underline{forcing}. Responder's rebids are: \\
+  \he{3} & {\color{blue} 24+\hcp}, balanced hand, \underline{forcing}.
+           Responder's rebids are: \\
          & \begin{tabular}{p{1.5cm}p{6.5cm}}
              \sp{3} & 0-4\hcp, puppet to \nt{3}. Opener rebids \nt{3} after
                       which \cl{4}/\di{}/\he{}/\sp{} will show 6+-cards and
@@ -438,7 +441,7 @@ from the above.
   \nt{3} & To play (by principle of fast arrival). \\
   \hline
 \end{longtable}
-
+ 
 \section{Responses to \di{1}}
 
 \hypertarget{1d}
@@ -497,7 +500,7 @@ fit is found.
                   \he{2} & 11-14\hcp, \he{} stopper, no \sp{} stopper. \\
                   \sp{2} & 11-14\hcp, \sp{} stopper, no \he{} stopper. \\
                   \nt{2} & 11-14\hcp, stopper in both majors. \\
-                  \di{2}, \di{3} & No stopper in majors, genuine \di{}
+                  \di{2}/\di{3} & No stopper in majors, genuine \di{}
                                    suit. \\
                   \he{3} & 15\hcp, \underline{game force}, \he{} stopper, no
                            \sp{} stopper. \\
@@ -530,7 +533,7 @@ If opponent doubles \di{1}, the responses are:
   \emph{Pass} & 0-4\hcp\ or 9-10\hcp. \\
   \emph{New suit} & 5-8\hcp. \\
   \nt{1} & 6-8\hcp, balanced. \\
-  \di{2}, \di{3} & $<8$\hcp, 4+-card support, preemptive. \\
+  \di{2}, \di{3} & $<$8\hcp, 4+-card support, preemptive. \\
   \emph{Redouble} & 11+\hcp. \\
   \hline
 \end{longtable}
@@ -597,7 +600,7 @@ Responses to a major opening include \emph{Bergen} raises,
                 \end{tabular} \\
   \nt{2} & 13+\hcp, \underline{forcing to game}, \emph{Jacoby
            \nt{2}}. See \ref{jacoby2nt} for responses. \\
-  \emph{Double-jump shift} & \emph{Splinter} bid, singleton or void in bid suit,
+  \emph{Double jump shift} & \emph{Splinter} bid, singleton or void in bid suit,
                              4+card support. \underline{Forcing to game}. \\
   \nt{3} & 14-15\hcp, usually 4-card support for opener's major,
            responder lacks a void or singleton, minimum 4 controls. \\
@@ -633,7 +636,7 @@ If an opponent doubles, responder can bid:
 \begin{longtable}{ p{1.5cm}p{9.5cm}  }
   \hline
   \emph{Pass} & 0-4\hcp\ or 9-10\hcp. \\
-  \emph{Raise} & $<8$\hcp, preemptive, 3+-card support following the
+  \emph{Raise} & $<$8\hcp, preemptive, 3+-card support following the
                  \emph{Law of Total Tricks}. \\
   \emph{New suit} & 5-8\hcp, 5+-card suit. \\
   \nt{1} & 6-8\hcp, balanced. \\
@@ -750,7 +753,7 @@ clarify his hand.
                   \emph{Raise} & Minimum, 3-card support. \\
                   \emph{New suit} & Maximum, 3+-card support, cue bid ace, slam try.  \\
                 \end{tabular} \\
-  \he{2}, \sp{2} & 8-10\hcp, non-forcing, invitational. Opener may
+  \he{2}/\sp{} & 8-10\hcp, non-forcing, invitational. Opener may
                    pass with a minimum and mild support. \\
   \nt{2} & 10-11\hcp, invitation to \nt{3}. \\
   \cl{3} & 8-10\hcp, 3+-card support, no 5-card major,
@@ -784,7 +787,7 @@ game.
   \nt{2} & 11+\hcp, artificial \underline{game-force} asks opener to
            further describe his hand. Opener's rebids are: \\
               & \begin{tabular}{lp{6.5cm}}
-                  \cl{3}/\di{}  & 3=1=4=5 or 4=3=1=5 shape respectively. \\
+                  \cl{3}/\di{}  & 3=4=1=5 or 4=3=1=5 shape respectively. \\
                   \he{3} & 11-13\hcp\ and 4=4=1=4 shape. \\
                   \sp{3} & 14-15\hcp\ and 4=4=1=4 shape. \\
                   \nt{3} & 14-15\hcp, 4=4=1=4 shape and \di{}A or \di{}K. \\
@@ -802,8 +805,6 @@ game.
 If opponents double \di{2}, responder can either \emph{Pass} if he
 wants to play in diamonds or \emph{Redouble} asking partner to bid a
 major.
-
-Overcalls carry their usual meaning.
 
 \section{Responses to \he{2} or \sp{2}}
 
@@ -827,17 +828,46 @@ minimum suit quality of 8 when vulnerable or 7 when non-vulnerable.
 
 \section{Responses to 2NT}
 
-\hypertarget{2nt}
-Opener is showing 5-5 in the minors with 6-12 points and responder's
-bids are:
+{\color{blue} Opener is showing a balanced hand with
+  22-23\hcp\ and no 5-card suit---this is the only 16+\hcp\ hand that
+  is not opened with \cl{1}. Responses are: }
 
 \begin{longtable}{ p{1.5cm}p{9.5cm} }
   \hline
-  \emph{Pass} & No game, no fit. \\
-  \cl{3}/\di{} & Interception bid. Opener should bid \he{3}/\sp{3}
-                 with a strong hand with less than five losers. \\
+  {\color{blue}\emph{Pass}} & {\color{blue}Very weak, no suit to escape to.} \\
+  {\color{blue}\di{3}/\he{}} & {\color{blue}Weak hand that doesn't want to play in no-trumps.
+                               \emph{Flint} convention---asks for a transfer to
+                               \he{}/\sp{} respectively.} \\
+  {\color{blue}\di{4}/\he{}} & {\color{blue}Transfer to \he{4}/\sp{} respectively.
+                               6+-card suit, to play.} \\
+  {\color{blue}\nt{3}} & {\color{blue}To play.} \\
+  {\color{blue}\cl{3}} & {\color{blue}\emph{Smolen Stayman}---asking for majors.
+                         Game-going with slam interest. Responses are:} \\
+              & \begin{tabular}{lp{8.5cm}}
+                  {\color{blue}\di{3}} & {\color{blue}No 4-card
+                                         major---responder can now rebid:} \\
+                         & \begin{tabular}{lp{7.5cm}}
+                             {\color{blue}\he{3}} & {\color{blue}4-card \he{} and 5-card \sp{}
+                                                    (allows for 5-3 fit).} \\
+                             {\color{blue}\sp{3}} & {\color{blue}4-card \sp{} and 5-card \he{}
+                                                    (allows for 5-3 fit).} \\
+                             {\color{blue}\nt{3}} & {\color{blue}To play.} \\
+                             {\color{blue}\cl{4}} & {\color{blue}Transfer to diamonds.} \\
+                           \end{tabular} \\
+                  {\color{blue}\he{3}/\sp{}} & {\color{blue}4-card major.} \\
+                  {\color{blue}\nt{3}} & {\color{blue}4 cards in both majors.
+                                         Responder bids:} \\
+                         & \begin{tabular}{lp{7.5cm}}
+                             {\color{blue}\emph{Pass}} & {\color{blue}To play.} \\
+                             {\color{blue}\cl{4}/\di{}/\he{}} & {\color{blue}Transfer to
+                                                                \di{}/\he{}/\sp{} respectively.} \\
+                           \end{tabular} \\
+                \end{tabular} \\
+  {\color{blue}\sp{3}} & {\color{blue}Transfer to clubs with a
+                         correction to diamonds. \emph{Minor suit slam try}.} \\
   \hline
 \end{longtable}
+
 
 \section{Responses to \cl{3}/\di{3}/\he{3}/\sp{3}}
 
@@ -875,7 +905,7 @@ overcall are:
 
 \begin{longtable}{p{1.5cm}p{9.5cm}}
   \hline
-  \emph{Pass} & $<8$\hcp. \\
+  \emph{Pass} & $<$8\hcp. \\
   \emph{Raise} & 9-10\hcp\ with 3-card support. \\
   \nt{1} & 9-10\hcp, balanced with a stopper in opponent's suit. \\
   \hline
@@ -1174,7 +1204,7 @@ Add your and partner's loser count and subtract from 24 to estimate
 the number of tricks that can be won.  You can estimate your partner's
 \ltc\ as follows:
 
-\begin{tabular}{p{1.5cm}p{9cm}}
+\begin{tabular}{rp{3cm}}
   \emph{\hcp{}} & \emph{Expected Losers} \\
   \hline
   \emph{7-9} & 8-9 losers (9) \\
