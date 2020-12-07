@@ -44,8 +44,8 @@
 %You WILL get errors if you delete any \newcommand statements!
 %If you lead the default card, you may use \newcommand}{cardcombination}{}.
 
-\newcommand{\names}{Gunjal --- Karthik}
-\newcommand{\playernumber}{0123456}
+\newcommand{\names}{COSL Precision}
+\newcommand{\playernumber}{Dec 2020}
 
 %General approach:
 \newcommand{\generalapproach}{Precision}
@@ -265,7 +265,7 @@
 %\setboolean{prsou}{true} %sound -- rule of 2/3/4
 \setboolean{prlig}{true} %light 
 %\newvoolean{prver}{true} %very light
-\newcommand{\preempttext}{} %other info about preempts
+\newcommand{\preempttext}{3NT is `gambling' running minor suit} %other info about preempts
 
 %Direct cuebid
 %\setboolean{qnami}{true} %natural...
@@ -288,7 +288,7 @@
 \newcommand{\ballowtext}{13} %balancing range
 \newcommand{\balhightext}{15}
 %\setboolean{unumi}{true}
-%\setboolean{unu2l}{true} %Unusual: minors
+\setboolean{unu2l}{true} %Unusual: minors
 %\setboolean{bntco}{true} %Unusual: 2 lowers
 \newcommand{\ntconvtext}{} %conventional overcalls (Sandwich etc)
 
@@ -325,8 +325,8 @@
 \newcommand{\toxothertext}{} %Line at bottom of Opps TOX section
 
 %vs. opening preempts
-%\setboolean{opdto}{true}
-\newcommand{\opdtothru}{} %Takeout through...
+\setboolean{opdto}{true}
+\newcommand{\opdtothru}{3\s} %Takeout through...
 %\setboolean{oppen}{true}
 \newcommand{\opconvtakeout}{} %Conv Takeout line
 %\setboolean{opleb}{true} %Lebensohl
@@ -336,7 +336,7 @@
 \setboolean{gerbe}{true} %Gerber
 %\setboolean{black}{true} %Blackwood
 \setboolean{b0314}{true} %RKC
-%\setboolean{b1430}{true} %1430
+\setboolean{b1430}{true} %1430
 \setboolean{dopi}{true}
 %\setboolean{depo}{true}
 \setboolean{ropi}{true}
@@ -387,13 +387,13 @@
 %\setboolean{nt3rd}{true} %3/5 NT
 \setboolean{ntatt}{true} %Attitude vs NT
 \newcommand{\leadtext}{} %Other lead info:e.g. A-attidude K-kount
-%\setboolean{pratt}{true} %Primary signal to partner's lead
-%\setboolean{prcou}{true}
+\setboolean{pratt}{true} %Primary signal to partner's lead
+\setboolean{prcou}{true}
 %\setboolean{prsui}{true}
 
 %Signals:
-%\setboolean{stdsu}{true} %std vs suits
-%\setboolean{stdnt}{true} %std vs NT
+\setboolean{stdsu}{true} %std vs suits
+\setboolean{stdnt}{true} %std vs NT
 %\setboolean{excep}{true}
 \newcommand{\signaltexttop}{}
 \newcommand{\signaltextbottom}{}
