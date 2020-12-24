@@ -13,7 +13,7 @@
 \newcommand{\hcp}{\textsc{hcp}}
 \newcommand{\sq}{\textsc{sq}}
 \newcommand{\ltc}{\textsc{ltc}}
-\newcommand{\forcing}{\fbox{forcing}}
+\newcommand{\forcing}[1]{\fbox{forcing#1}}
 
 % Colours for changes
 \definecolor{v1color}{rgb}{0.01,0.28,1.0} % Blue
@@ -43,7 +43,7 @@ e.g., \hhand{AQJT,KQ,76,J7642} or \hhand{AKT9,AK98,432,32}.
 \begin{longtable}{ p{1.5cm}p{9.5cm} }
   \hline
   \cl{1} & 16+\hcp\ and any distribution,
-           \forcing. \hyperlink{1c}{\HandCuffRight} \\
+           \forcing{} \hyperlink{1c}{\HandCuffRight} \\
   \di{1} & 11-15\hcp, at least 2 cards in \di{}, no 5-card major and
            less than 6 clubs. \hyperlink{1d}{\HandCuffRight} \\
   \he{1}/\sp{} & 11-15\hcp, 5-cards in suit bid. Any other opening bid
@@ -55,7 +55,7 @@ e.g., \hhand{AQJT,KQ,76,J7642} or \hhand{AKT9,AK98,432,32}.
   \cl{2} & 11-15\hcp, Either a good 5-card club suit with 4-card major
            or a 6+-card club suit (7\sq\ hand). \hyperlink{2c}{\HandCuffRight} \\
   \di{2} & 11-15\hcp, 5-4-3-1, 4-4-4-1 or 5-4-4-0 shape with short \di{}
-           (5-card suit if present is \cl{}), \underline{forcing}.
+           (5-card suit if present is \cl{}), \forcing{}
            \hyperlink{2d}{\HandCuffRight} \\
   \he{2}/\sp{} & 8-10\hcp, 6+-card suit (\sq\ of 8 when vulnerable
                  and 7 non-vulnerable). With 6 or less losers, open
@@ -83,11 +83,11 @@ and no fit is found.
 \begin{longtable}{ p{1.5cm}p{9.5cm} }
   \hline
   \multicolumn{2}{l}{\emph{\underline{Negative Response}}} \\
-  \di{1} & 0-7\hcp, \underline{forcing}. \hyperlink{1c1d}{\HandCuffRight} \\
+  \di{1} & 0-7\hcp, \forcing{} \hyperlink{1c1d}{\HandCuffRight} \\
   \multicolumn{2}{l}{\emph{\underline{Constructive Responses}}} \\
   \he{2}/\sp{} & 4-7\hcp, 6+-card suit, \vone{two of top four honours (not AK)}.
                  \hyperlink{1c2major}{\HandCuffRight} \\
-  \multicolumn{2}{l}{\emph{\underline{Positive Responses (forcing to game})}} \\
+  \multicolumn{2}{l}{\emph{\underline{Positive Responses---\forcing{ to game}}}} \\
   \he{1}/\sp{1}, \cl{2}/\di{} & 8+\hcp, 5+-cards in suit, can stop
                                 short of game if no fit.
                                 \hyperlink{1csuit}{\HandCuffRight}\\
@@ -128,7 +128,7 @@ below.
   \hline
   \multicolumn{2}{l}{\emph{\underline{After \cl{1}--Double}}} \\
   \emph{Pass} & 0-4\hcp. \\
-  \di{1} & 5-7\hcp, \underline{forcing}. \\
+  \di{1} & 5-7\hcp, \forcing{} \\
   \emph{Redouble} & 8+\hcp, 4-4 in the major suits. \\
   \emph{Others} & Same as over \cl{1} without intervention. \\
   \multicolumn{2}{l}{\emph{\underline{After \cl{1}--\di{1}/\he{}/\sp{}}}} \\
@@ -140,7 +140,7 @@ below.
   \emph{Double} & 5-8\hcp\ or 9+\hcp, no 5-card suit,
                   \underline{takeout}. Cue bid on next round clarifies hand as
                   9+\hcp. \\
-  \emph{Cue Bid} & 9+\hcp, \underline{game forcing}. \\
+  \emph{Cue Bid} & 9+\hcp, \forcing{ to game} \\
   \multicolumn{2}{l}{\emph{\underline{After \cl{1}--\nt{1}}}} \\
   \emph{Pass} & 0-4\hcp. \\
   \emph{New suit} & 5-8\hcp, 5+-card suit. \\
@@ -154,7 +154,7 @@ below.
   \vone{\emph{Double}} & \vone{5+\hcp, takeout.} \\
   \multicolumn{2}{l}{\emph{\vone{\underline{At 4-level}}}} \\
   \vone{\emph{Double}} & \vone{Weak hand.} \\
-  \vone{\emph{Pass}} & \vone{\underline{\emph{Forcing pass}},
+  \vone{\emph{Pass}} & \vone{\underline{\emph{\forcing{ pass,}}}
                        ask opener to take action.} \\
   \hline
 \end{longtable}
@@ -224,7 +224,7 @@ a jump in a suit with 22+\hcp. Further bidding is largely natural.
                             or void in suit bid with 4+-card support
                             for partner's suit. \\
            \end{tabular} \\
-  \he{2}/\sp{}, \cl{3}/\di{} & 22+\hcp, 5-card suit\vone{---\underline{game force}}.
+  \he{2}/\sp{}, \cl{3}/\di{} & 22+\hcp, 5-card suit\vone{---\forcing{ to game.}}
                                Responder's rebids are: \\
          & \begin{tabular}{lp{6.7cm}}
              \vone{\emph{Lowest \nt{}}} & \vone{0-3\hcp,
@@ -233,11 +233,11 @@ a jump in a suit with 22+\hcp. Further bidding is largely natural.
              \emph{Jump raise} & 4-7\hcp, maximum, 3+-card support, no
                                  specific values in other suits. \\
              \emph{New suit} & 4-7\hcp, values in suit, does not deny
-                               support for partner's suit. \underline{forcing}. \\
+                               support for partner's suit. \forcing{} \\
              \vone{\emph{Jump \nt{}}} & \vone{4-7\hcp\
                                         maximum, spread values, no support.} \\
            \end{tabular} \\
-  \he{3} & \vone{ 24+\hcp}, balanced hand, \underline{forcing}.
+  \he{3} & \vone{ 24+\hcp}, balanced hand, \forcing{}
            Responder's rebids are: \\
          & \begin{tabular}{p{1.5cm}p{6.5cm}}
              \sp{3} & 0-4\hcp, puppet to \nt{3}. Opener rebids \nt{3} after
@@ -265,7 +265,7 @@ suit.
   \hline
   \emph{Pass} & Game unlikely. \\
   \nt{3}, \he{4}/\sp{} & Raise to game is a sign-off. \\
-  \emph{New suit} & \underline{One-round force}. Responder's rebids are:\\
+  \emph{New suit} & \forcing{} Responder's rebids are:\\
               & \begin{tabular}{p{1.8cm}p{6.3cm}}
                   \emph{Raise} & 3+-card support (or \emph{Qx}). \\
                   \emph{Rebid \he{}/\sp{}} & Minimum, no support. \\
@@ -275,7 +275,7 @@ suit.
                                                 singleton or void
                                                 in suit bid. \\
                 \end{tabular} \\
-  \nt{2} & Support for suit, \underline{game force}. Responders's
+  \nt{2} & Support for suit, \forcing{ to game.} Responders's
            rebids are:\\
               & \begin{tabular}{p{1.8cm}p{5cm}}
                   \emph{Rebid} \he{}/\sp{} & Minimum. \\
@@ -409,8 +409,7 @@ the appropriate game contract.
   \hline
   \emph{New suit} & 5+-card suit, denies 3-card support for responder's
                     suit. Subsequent bids are natural to find the correct game
-                    contract. \underline{Forcing for one
-                    round}. Responses are: \\
+                    contract. \forcing{} Responses are: \\
                   & \begin{tabular}{lp{5.7cm}}
                       \emph{New suit} & 4-card suit. \\
                       \emph{Raise} & 3+-card support. \\
@@ -462,23 +461,23 @@ fit is found.
   \emph{Pass} & 0-7\hcp. \\
   \nt{1} & 8-10\hcp, balanced, no 4-card major. \\
   \sp{1} &  8-15\hcp, 4-card \sp{}, denies 4-card \he{},
-           \underline{forcing} for one round. Opener's rebids have the
+           \forcing. Opener's rebids have the
            same structure as over \he{1}. \\
   \he{1} & 8-15\hcp, 4-card \he{}, may have 4-card \sp{},
-           \underline{forcing} for one round. Opener rebids: \\
+           \forcing. Opener rebids: \\
               & \begin{tabular}{p{1.5cm}p{7cm}}
                   \sp{1} & 11-14\hcp, 4-card \sp{}, no 4-card
                            \he{}. Responder rebids: \\
                          & \begin{tabular}{lp{5.5cm}}
                              \nt{1} & Sign-off. \\
-                             \cl{2} & 4th-suit-\underline{forcing}
+                             \cl{2} & 4th-suit-\forcing{}
                                       (``do something clever''). \\
                              \sp{2} & 8-9\hcp, 4-card \sp{}. \\
                            \end{tabular} \\
                   \nt{1} & 11-14\hcp, balanced, denies 4-card fit.
                            Responder can rebid \\
                          & \begin{tabular}{ll}
-                             \cl{2} & New minor---\underline{one-round force}. \\
+                             \cl{2} & New minor---\forcing{} \\
                              \di{2} & 8-9\hcp, 4-card \sp{}. \\
                            \end{tabular} \\
                   \cl{2} & Unbalanced, 5-4 in minors, no 4-card
@@ -502,16 +501,16 @@ fit is found.
                            4-card major. \\
                 \end{tabular} \\
   \cl{2}/\di{} & 11-15\hcp, 4+-card suit, no 4-card major,
-                 \underline{forcing}. Opener's rebids are: \\
+                 \forcing. Opener's rebids are: \\
               & \begin{tabular}{lp{7cm}}
                   \he{2} & 11-14\hcp, \he{} stopper, no \sp{} stopper. \\
                   \sp{2} & 11-14\hcp, \sp{} stopper, no \he{} stopper. \\
                   \nt{2} & 11-14\hcp, stopper in both majors. \\
                   \di{2}/\di{3} & No stopper in majors, genuine \di{}
                                   suit. \\
-                  \he{3} & 15\hcp, \underline{game force}, \he{} stopper, no
+                  \he{3} & 15\hcp, \forcing{ to game,} \he{} stopper, no
                            \sp{} stopper. \\
-                  \sp{3} & 15\hcp, \underline{game force}, \sp{} stopper, no
+                  \sp{3} & 15\hcp, \forcing{ to game,} \sp{} stopper, no
                            \he{} stopper. \\
                   \nt{3} & 15\hcp, stopper in both majors. \\
                   \cl{3} & No stopper in majors. \\
@@ -580,7 +579,7 @@ Responses to a major opening include \emph{Bergen} raises,
   \sp{1} & See below for \sp{1} over \he{1}. \\
   \nt{1} & 8-15\hcp, balanced hand with mild support for opener's suit
            or unbalanced hand with insufficient \hcp\ to justify a
-           2-over-1 response. \underline{Forcing}---Opener's
+           2-over-1 response. \forcing{}---Opener's
            rebids are: \\
               & \begin{tabular}{p{2cm}p{6.5cm}}
                   \multicolumn{2}{l}{\emph{\underline{With 11-13\hcp}}} \\
@@ -596,7 +595,7 @@ Responses to a major opening include \emph{Bergen} raises,
                        suit (after \sp{1}). Opener's rebids are:\\
               & \begin{tabular}{p{2cm}p{6.5cm}}
                   \he{2} (following \sp{1}) & Natural, 4-card+ suit. \\
-                  \sp{2} (following \he{1}) & 14-15\hcp, reverse. \underline{forcing}. \\
+                  \sp{2} (following \he{1}) & 14-15\hcp, reverse. \forcing{} \\
                   \emph{Rebid suit} & Minimum, not necessarily a 6-carder. \\
                   \nt{2} & 11-13\hcp, stoppers in unbid suits \\
                   \emph{Raise} & 11-13\hcp, good support, non-forcing. \\
@@ -605,10 +604,10 @@ Responses to a major opening include \emph{Bergen} raises,
                   \emph{Jump in own suit} & 14-15\hcp, very good 6-card suit. \\
                   \nt{3} & 15\hcp, stoppers in unbid suits. \\
                 \end{tabular} \\
-  \nt{2} & 13+\hcp, \underline{forcing to game}, \emph{Jacoby
+  \nt{2} & 13+\hcp, \forcing{ to game,} \emph{Jacoby
            \nt{2}}. See \ref{jacoby2nt} for responses. \\
   \emph{Double jump shift} & \emph{Splinter} bid, singleton or void in bid suit,
-                             4+card support. \underline{Forcing to game}. \\
+                             4+card support. \forcing{ to game} \\
   \nt{3} & 14-15\hcp, usually 4-card support for opener's major,
            responder lacks a void or singleton, minimum 4 controls. \\
   \hline
@@ -627,7 +626,7 @@ and is forcing for one round. Opener's rebids are:
   \he{3} & 13-15\hcp, 6+-card suit. \\
   \sp{3} & 13-15\hcp, 4-card spade support. \\
   \nt{3} & To play with running suit. \\
-  \cl{4}/\di{} & \emph{Splinter} bids, \underline{game forcing}. \\
+  \cl{4}/\di{} & \emph{Splinter} bids, \forcing{ to game} \\
   \he{4} & To play---distributional hand. \\
   \sp{4} & To play---maximum hand with 13-15\hcp\ and
            distributional. \\
@@ -661,7 +660,7 @@ If an opponent overcalls:
   \nt{1} & 8-10\hcp\ with stopper in opponent's suit. \\
   \nt{2} & 11-12\hcp\ with stopper in opponent's suit. \\
   \emph{Cue bid} & 15+\hcp with singleton or void in opponent's
-                   suit. \underline{Forcing}. \\
+                   suit. \forcing{} \\
   \hline
 \end{longtable}
 
@@ -682,7 +681,7 @@ doubletons. Responses are as below:
   \sp{2} & 8+\hcp---Minor suit \emph{Stayman}, denies 4-card major and asks
            opener for a 4-card minor. Shows a minor 2-suiter (5-4 or
            better). \\
-  \emph{3 of suit} & Good suit, \underline{game forcing}. \\
+  \emph{3 of suit} & Good suit, \forcing{ to game} \\
   \cl{4} & \emph{Gerber} ace-asking. \hyperlink{gerber}{\HandCuffRight} \\
   \di{4}/\he{} & \emph{Texas} transfers to \he{4} and \sp{4}
                  respectively. Denies slam values. \\
@@ -703,7 +702,7 @@ If an opponent doubles \nt{1}, responder can bid:
   \cl{2} & 4-card suit (or good 3-card clubs). \\
   \di{2} & Short in clubs. \\
   \he{2} & Tolerance for majors (at least 4-3). \\
-  \sp{2} & 12+\hcp, \underline{forcing}. \\
+  \sp{2} & 12+\hcp, \forcing{} \\
   \emph{3 of suit} & 6+-card suit, invitational. \\
   \hline
 \end{longtable}
@@ -714,7 +713,7 @@ After an opponent's overcall, responder has the following choices:
   \emph{Double} & Penalty double. \\
   \emph{Suit at 2-level} & 0-6\hcp, natural and non-forcing. \\
   \nt{2} & \emph{Lebensohl}---partner must bid \cl{3}. See \ref{lebensohl}. \\
-  \vone{\emph{Suit at 3-level}} & Natural, \underline{Forcing to game}. \\
+  \vone{\emph{Suit at 3-level}} & Natural, \forcing{ to game} \\
   \vone{\emph{Cue bid}} & \vone{Asks opener to bid a 4-card major
                           if he has one, denies a stopper in opponent's suit.} \\
   \nt{3} & \emph{Lebensohl}---denies stopper in opponent's suit. See \ref{lebensohl}. \\
@@ -731,7 +730,7 @@ clarify his hand.
 \begin{longtable}{ p{1.5cm}p{9.5cm} }
   \hline
   \emph{Pass} & 0-7\hcp, poor support. \\
-  \di{2} & 11+\hcp, conventional and \underline{forcing} (with club fit,
+  \di{2} & 11+\hcp, conventional and \forcing{} (with club fit,
            may be made with only 8\hcp). Opener's rebids are: \\
               & \begin{tabular}{lp{7.5cm}}
                   \he{2}/\sp{} & 11-13\hcp, 4-card suit. \\
@@ -791,7 +790,7 @@ game.
   \hline
   \emph{Pass} & 6+ diamonds, no interest in other suits or bidding higher. \\
   \he{2}/\sp{}, \cl{3} & Natural, sign-off. \\
-  \nt{2} & 11+\hcp, artificial \underline{game-force} asks opener to
+  \nt{2} & 11+\hcp, artificial \forcing{ to game} asks opener to
            further describe his hand. Opener's rebids are: \\
               & \begin{tabular}{lp{6.5cm}}
                   \cl{3}/\di{}  & 3=4=1=5 or 4=3=1=5 shape respectively. \\
@@ -823,12 +822,12 @@ minimum suit quality of 8 when vulnerable or 7 when non-vulnerable.
   \hline
   \emph{Pass} & No game, no fit. \\
   \emph{Raise to 3 or 4} & Natural, sign-off. \\
-  \emph{New suit} & Natural, \underline{forcing}. Opener's rebids are: \\
+  \emph{New suit} & Natural, \forcing. Opener's rebids are: \\
               & \begin{tabular}{ll}
                   \emph{Raise} & 3-card support. \\
-                  \emph{Rebid own suit} & Forcing. \\
+                  \emph{Rebid own suit} & \forcing{} \\
                 \end{tabular} \\
-  \nt{2} & \underline{Forcing}. Opener is asked to bid suit where he
+  \nt{2} & \forcing{} Opener is asked to bid suit where he
            has a singleton or void or rebid his own suit lacking either. \\
   \hline
 \end{longtable}
@@ -884,7 +883,7 @@ After a preemptive opening of three of a suit, responder's rebids are:
 \begin{longtable}{p{1.5cm}p{9.5cm}}
   \hline
   \emph{Raise} & Preemptive. \\
-  \emph{New suit} & \underline{Forcing for one round}. \\
+  \emph{New suit} & Natural, \forcing{} \\
   \emph{Others} & Natural. \\
   \hline
 \end{longtable}
@@ -1090,7 +1089,7 @@ that the strong hand becomes declarer. Responder's rebids are:
   \nt{2} & Balanced or semi-balanced hand with 5-card \he{} or
            \sp{}. Invitational---partner can pass or sign-off in 3 of major or bid \nt{3}. \\
   \cl{3}/\di{} & 4-card suit in addition to 5-card major,
-                 \underline{game forcing}.. \\
+                 \forcing{ to game} \\
   \emph{Raise} & 6-card suit, invitational. \\
   \he{3} & (After \sp{2}) 5-5 in the majors with slam
            interest. Stronger than an immediate jump to \he{4}. \\
@@ -1109,7 +1108,7 @@ that the strong hand becomes declarer. Responder's rebids are:
 \hypertarget{jacoby2nt}
 A \nt{2} response over an opening of \he{1} or \sp{1} is conventional
 and shows 13+\hcp\ with 4+-card support of partner's suit. It is
-\underline{forcing to game}. Opener's rebids are:
+\forcing{ to game.} Opener's rebids are:
 
 \begin{longtable}{p{3.5cm}p{7.5cm}}
   \hline
@@ -1168,7 +1167,7 @@ right-hand opponent makes a suit overcall at the two-level.
                            --- 3NT is natural, to play, and shows a
                            stopper in the opponent's suit. \\
                          \end{tabular} \\
-  \emph{3 in new suit} & Natural, \underline{forcing to game}. \\
+  \emph{3 in new suit} & Natural, \forcing{ to game} \\
   \emph{Cue bid} & Artificial---asks opener to bid a 4-card major and
                    denies a stopper in opponent's suit. \\
   \nt{3} & Natural, to play, and denies a stopper in opponent's
