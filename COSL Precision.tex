@@ -13,6 +13,13 @@
 \newcommand{\hcp}{\textsc{hcp}}
 \newcommand{\sq}{\textsc{sq}}
 \newcommand{\ltc}{\textsc{ltc}}
+\newcommand{\forcing}{\fbox{forcing}}
+
+% Colours for changes
+\definecolor{v1color}{rgb}{0.01,0.28,1.0} % Blue
+\definecolor{v2color}{rgb}{0.47,0.27,0.23} % Bole
+\newcommand{\vone}[1]{{\color{v1color}#1}}
+\newcommand{\vtwo}[1]{{\color{v2color}#1}}
 
 \begin{document}
 
@@ -24,7 +31,7 @@
 \tableofcontents
 
 \section{Opening Bids}
-All strong hands ({\color{blue}with one exception}\footnote{Balanced
+All strong hands (\vone{with one exception}\footnote{Balanced
   22-23 point hands are opened \nt{2}.}) are opened \cl{1} which is
 forcing for one round. In general, a major suit opening shows 5+-cards
 and the higher ranking suit is opened with suits of equal length. A
@@ -36,7 +43,7 @@ e.g., \hhand{AQJT,KQ,76,J7642} or \hhand{AKT9,AK98,432,32}.
 \begin{longtable}{ p{1.5cm}p{9.5cm} }
   \hline
   \cl{1} & 16+\hcp\ and any distribution,
-           \underline{forcing}. \hyperlink{1c}{\HandCuffRight} \\
+           \forcing. \hyperlink{1c}{\HandCuffRight} \\
   \di{1} & 11-15\hcp, at least 2 cards in \di{}, no 5-card major and
            less than 6 clubs. \hyperlink{1d}{\HandCuffRight} \\
   \he{1}/\sp{} & 11-15\hcp, 5-cards in suit bid. Any other opening bid
@@ -54,9 +61,9 @@ e.g., \hhand{AQJT,KQ,76,J7642} or \hhand{AKT9,AK98,432,32}.
                  and 7 non-vulnerable). With 6 or less losers, open
                  \sp{1}/\he{}/\di{}. \hyperlink{2major}{\HandCuffRight}
   \\
-  {\color{blue} \nt{2}}& {\color{blue}22-23\hcp, balanced hand (no
-                         5-card suit).
-                         \hyperlink{2nt}{\HandCuffRight}} \\
+  \vone{\nt{2}}& \vone{22-23\hcp, balanced hand (no
+                 5-card suit).
+                 \hyperlink{2nt}{\HandCuffRight}} \\
   \emph{3 of suit} & 8-10\hcp, 7+-card suit (\sq\ of 9
                      when vulnerable and 8 non-vulnerable). Apply rule of
                      2/3/4. \hyperlink{3preempt}{\HandCuffRight}
@@ -78,30 +85,30 @@ and no fit is found.
   \multicolumn{2}{l}{\emph{\underline{Negative Response}}} \\
   \di{1} & 0-7\hcp, \underline{forcing}. \hyperlink{1c1d}{\HandCuffRight} \\
   \multicolumn{2}{l}{\emph{\underline{Constructive Responses}}} \\
-  \he{2}/\sp{} & 4-7\hcp, 6+-card suit, {\color{blue}two of top four honours (not AK)}.
-                         \hyperlink{1c2major}{\HandCuffRight} \\
+  \he{2}/\sp{} & 4-7\hcp, 6+-card suit, \vone{two of top four honours (not AK)}.
+                 \hyperlink{1c2major}{\HandCuffRight} \\
   \multicolumn{2}{l}{\emph{\underline{Positive Responses (forcing to game})}} \\
   \he{1}/\sp{1}, \cl{2}/\di{} & 8+\hcp, 5+-cards in suit, can stop
                                 short of game if no fit.
                                 \hyperlink{1csuit}{\HandCuffRight}\\
   \nt{1} & 8-13\hcp, no five-card suit. \hyperlink{1c1nt}{\HandCuffRight} \\
   \nt{2} & 14+\hcp, balanced hand. \hyperlink{1c2nt}{\HandCuffRight} \\
-  {\color{blue}\nt{3}} & {\color{blue}Solid 6/7-card suit and 1+ side control (if
-                                     7-carder, maybe no side control)} \\
-  {\color{blue}\cl{3}} & {\color{blue}8-10\hcp, 4-4-4-1 shape with a
-                         black singleton. \di{3} is a relay and
-                         \he{3}/\sp{3} would show \cl{}/\sp{} singleton
-                         respectively. A rebid in the singleton suit
-                         is a \emph{control asking bid}.}
-                         \hyperlink{controlask}{\HandCuffRight} \\
-  {\color{blue}\di{3}} & {\color{blue}8-10\hcp, 4-4-4-1 shape with a
-                         red singleton. \he{3} is a relay and
-                         \sp{3}/\nt{3} show a \di{}/\he{} singleton
-                         respectively. A rebid in the singleton suit
-                         is a \emph{control asking bid}.}
-                         \hyperlink{controlask}{\HandCuffRight} \\
+  \vone{\nt{3}} & \vone{Solid 6/7-card suit and 1+ side control (if
+                  7-carder, maybe no side control)} \\
+  \vone{\cl{3}} & \vone{8-10\hcp, 4-4-4-1 shape with a
+                  black singleton. \di{3} is a relay and
+                  \he{3}/\sp{3} would show \cl{}/\sp{} singleton
+                  respectively. A rebid in the singleton suit
+                  is a \emph{control asking bid}.}
+                  \hyperlink{controlask}{\HandCuffRight} \\
+  \vone{\di{3}} & \vone{8-10\hcp, 4-4-4-1 shape with a
+                  red singleton. \he{3} is a relay and
+                  \sp{3}/\nt{3} show a \di{}/\he{} singleton
+                  respectively. A rebid in the singleton suit
+                  is a \emph{control asking bid}.}
+                  \hyperlink{controlask}{\HandCuffRight} \\
   \he{3}/\sp{}, \cl{4}/\di{} & 11+\hcp, 4-4-4-1 shape with singleton in suit above
-                               the one bid. {\color{blue}A rebid in the
+                               the one bid. \vone{A rebid in the
                                singleton suit is a \emph{control
                                asking bid}.}
                                \hyperlink{controlask}{\HandCuffRight} \\
@@ -138,17 +145,17 @@ below.
   \emph{Pass} & 0-4\hcp. \\
   \emph{New suit} & 5-8\hcp, 5+-card suit. \\
   \emph{Double} & 5+\hcp. \\
-  \multicolumn{2}{l}{\emph{{\color{blue}\underline{At 2-level}}}} \\
-  {\color{blue}\emph{Pass}} & {\color{blue}0-4\hcp\ or 9+\hcp\
-                              with strength in opponent's suit.} \\
-  {\color{blue}\emph{New suit}} & {\color{blue}5-8\hcp, 5+-card suit.} \\
-  {\color{blue}\emph{Double}} & {\color{blue}5+\hcp.} \\
-  \multicolumn{2}{l}{\emph{{\color{blue}\underline{At 3-level}}}} \\
-  {\color{blue}\emph{Double}} & {\color{blue}5+\hcp, takeout.} \\
-  \multicolumn{2}{l}{\emph{{\color{blue}\underline{At 4-level}}}} \\
-  {\color{blue}\emph{Double}} & {\color{blue}Weak hand.} \\
-  {\color{blue}\emph{Pass}} & {\color{blue}\underline{\emph{Forcing pass}},
-                              ask opener to take action.} \\
+  \multicolumn{2}{l}{\emph{\vone{\underline{At 2-level}}}} \\
+  \vone{\emph{Pass}} & \vone{0-4\hcp\ or 9+\hcp\
+                       with strength in opponent's suit.} \\
+  \vone{\emph{New suit}} & \vone{5-8\hcp, 5+-card suit.} \\
+  \vone{\emph{Double}} & \vone{5+\hcp.} \\
+  \multicolumn{2}{l}{\emph{\vone{\underline{At 3-level}}}} \\
+  \vone{\emph{Double}} & \vone{5+\hcp, takeout.} \\
+  \multicolumn{2}{l}{\emph{\vone{\underline{At 4-level}}}} \\
+  \vone{\emph{Double}} & \vone{Weak hand.} \\
+  \vone{\emph{Pass}} & \vone{\underline{\emph{Forcing pass}},
+                       ask opener to take action.} \\
   \hline
 \end{longtable}
 
@@ -172,17 +179,17 @@ a jump in a suit with 22+\hcp. Further bidding is largely natural.
              \he{2} & 0-7\hcp, transfer to \sp{2}. \\
              \sp{2} & 0-7\hcp, transfer to \cl{3}. \\
              \nt{2} & Weak with both minors or \di{}. \\
-             {\color{blue}\cl{4}} & {\color{blue}\emph{Gerber} ace-asking.}
-                                    \hyperlink{gerber}{\HandCuffRight} \\
-             {\color{blue}\di{4}/\he{}} & {\color{blue}\emph{Texas}]
-                                          transfers to \he{4}/\sp{}
-                                          respectively.} \\
+             \vone{\cl{4}} & \vone{\emph{Gerber} ace-asking.}
+                             \hyperlink{gerber}{\HandCuffRight} \\
+             \vone{\di{4}/\he{}} & \vone{\emph{Texas}]
+                                   transfers to \he{4}/\sp{}
+                                   respectively.} \\
            \end{tabular} \\
   \nt{2} & 19-21\hcp, balanced hand, no 5-card
            major. Responder's rebids are: \\
          & \begin{tabular}{lp{7.5cm}}
              \emph{Pass} & 0-3\hcp. \\
-             \cl{3} & 4-7\hcp, \emph{Stayman} {\color{blue}(implies 4-card major)}.
+             \cl{3} & 4-7\hcp, \emph{Stayman} \vone{(implies 4-card major)}.
                       \hyperlink{stayman}{\HandCuffRight} \\
              \di{3}/\he{} & $<$8\hcp, transfer to \he{3}/\sp{} respectively. \\
              \sp{3} & Transfer to minors. \\
@@ -190,7 +197,7 @@ a jump in a suit with 22+\hcp. Further bidding is largely natural.
              \cl{4} & \emph{Gerber} ace-asking.
                       \hyperlink{gerber}{\HandCuffRight} \\
              \di{4}/\he{} & \emph{Texas} transfers to \he{4}/\sp{}
-                              respectively. \\
+                            respectively. \\
            \end{tabular} \\
   \he{1}/\sp{} & 4+-card suit, non-forcing. Responder's rebids are: \\
          & \begin{tabular}{lp{6.7cm}}
@@ -201,8 +208,8 @@ a jump in a suit with 22+\hcp. Further bidding is largely natural.
              \cl{2}/\di{} & 5-7\hcp, 5-card suit, denies 3-card support. \\
              \emph{Single raise} & 2-4\hcp\ with 3+-card support. \\
              \emph{Double raise} & 5-7\hcp\ with 4+-card support \\
-             {\color{blue}\emph{Game raise}} & {\color{blue}8+\hcp,
-                                               good hand, 4+-card support.} \\
+             \vone{\emph{Game raise}} & \vone{8+\hcp,
+                                        good hand, 4+-card support.} \\
            \end{tabular} \\
   \cl{2}/\di{} & 5+-card suit, may have a 4-card major,
                  non-forcing. Responder's rebids are: \\
@@ -210,27 +217,27 @@ a jump in a suit with 22+\hcp. Further bidding is largely natural.
              \emph{Pass} & 0-3\hcp. \\
              \he{2}/\sp{} & 4-7\hcp, 5+-cards. \\
              \nt{2} & 5-7\hcp, balanced hand, no 5-card suit. \\
-             {\color{blue}\di{2}}, \cl{3} & 5-7\hcp, 6+-card suit. \\
-             {\color{blue}\emph{Single raise}} & {\color{blue}3+-card
-                                                 support, non-forcing.} \\
+             \vone{\di{2}}, \cl{3} & 5-7\hcp, 6+-card suit. \\
+             \vone{\emph{Single raise}} & \vone{3+-card
+                                          support, non-forcing.} \\
              \he{3}/\sp{} & 5-7\hcp\ \emph{Splinter} showing singleton
                             or void in suit bid with 4+-card support
                             for partner's suit. \\
            \end{tabular} \\
-  \he{2}/\sp{}, \cl{3}/\di{} & 22+\hcp, 5-card suit{\color{blue}---\underline{game force}}.
-                                          Responder's rebids are: \\
+  \he{2}/\sp{}, \cl{3}/\di{} & 22+\hcp, 5-card suit\vone{---\underline{game force}}.
+                               Responder's rebids are: \\
          & \begin{tabular}{lp{6.7cm}}
-             {\color{blue}\emph{Lowest \nt{}}} & {\color{blue}0-3\hcp,
-                                                 minimum, no support.} \\
+             \vone{\emph{Lowest \nt{}}} & \vone{0-3\hcp,
+                                          minimum, no support.} \\
              \emph{Raise} & 0-3\hcp, minimum, 3+-card support. \\
              \emph{Jump raise} & 4-7\hcp, maximum, 3+-card support, no
                                  specific values in other suits. \\
              \emph{New suit} & 4-7\hcp, values in suit, does not deny
                                support for partner's suit. \underline{forcing}. \\
-             {\color{blue}\emph{Jump \nt{}}} & {\color{blue}4-7\hcp\
-                                               maximum, spread values, no support.} \\
+             \vone{\emph{Jump \nt{}}} & \vone{4-7\hcp\
+                                        maximum, spread values, no support.} \\
            \end{tabular} \\
-  \he{3} & {\color{blue} 24+\hcp}, balanced hand, \underline{forcing}.
+  \he{3} & \vone{ 24+\hcp}, balanced hand, \underline{forcing}.
            Responder's rebids are: \\
          & \begin{tabular}{p{1.5cm}p{6.5cm}}
              \sp{3} & 0-4\hcp, puppet to \nt{3}. Opener rebids \nt{3} after
@@ -262,8 +269,8 @@ suit.
               & \begin{tabular}{p{1.8cm}p{6.3cm}}
                   \emph{Raise} & 3+-card support (or \emph{Qx}). \\
                   \emph{Rebid \he{}/\sp{}} & Minimum, no support. \\
-                  {\color{blue}{\nt{3}}} & {\color{blue}Maximum, no support.} \\
-                  \emph{Cue bid under} \nt{3} & {\color{blue}Maximum
+                  \vone{{\nt{3}}} & \vone{Maximum, no support.} \\
+                  \emph{Cue bid under} \nt{3} & \vone{Maximum
                                                 with support,}
                                                 singleton or void
                                                 in suit bid. \\
@@ -274,9 +281,9 @@ suit.
                   \emph{Rebid} \he{}/\sp{} & Minimum. \\
                   \emph{New suit} & Singleton or void in bid suit. \\
                 \end{tabular} \\
-  {\color{blue}\nt{3}} & {\color{blue}AQ or KQ in suit.} \\
-  {\color{blue}\nt{4}} & {\color{blue}\emph{Roman Key-Card Blackwood}.
-                         \hyperlink{blackwood}{\HandCuffRight}} \\
+  \vone{\nt{3}} & \vone{AQ or KQ in suit.} \\
+  \vone{\nt{4}} & \vone{\emph{Roman Key-Card Blackwood}.
+                  \hyperlink{blackwood}{\HandCuffRight}} \\
   \hline
 \end{longtable}
 
@@ -332,7 +339,7 @@ A \cl{2} rebid after a response of \nt{1} is \emph{Transfer Stayman}
 \subsubsection{\cl{1}--1NT--Suit Bid}
 A bid of \di{2}/\he{}/\sp{} or \cl{3} over a response of \nt{1} shows
 a good suit and asks responder to show strength and fit in steps as
-below. {\color{blue}This is the \emph{$\Omega$ support asking bid} and
+below. \vone{This is the \emph{$\Omega$ support asking bid} and
   in this context, a minimum is 8-10\hcp\ with $<$4 controls, a
   maximum is 11+\hcp\ with 4+ controls and support is \emph{Hxx}, \emph{xxxx} or
   better.}
@@ -344,7 +351,7 @@ below. {\color{blue}This is the \emph{$\Omega$ support asking bid} and
   \emph{4 steps} & Maximum with support. \\
   \hline
 \end{longtable}
- 
+
 Any new suit bid by the \cl{1} opener that is not a relay and is under
 the level of game is a \emph{trump asking bid} and responses are in
 steps as below:
@@ -415,12 +422,12 @@ the appropriate game contract.
   \nt{1} & $\beta$ \emph{control asking bid}. \hyperlink{controlask}{\HandCuffRight} \\
   \emph{Single raise} & Suit fit but not a great hand since $\beta$
                         wasn't used. \\
-  {\color{blue}\emph{Double raise}} & {\color{blue}18-19+\hcp\ balanced,
-                                      good trumps (\emph{xxxx} or \emph{HHx}).}\\
-  {\color{blue}\emph{Game raise}} & {\color{blue}Minimum, balanced, 4-card fit.} \\
+  \vone{\emph{Double raise}} & \vone{18-19+\hcp\ balanced,
+                               good trumps (\emph{xxxx} or \emph{HHx}).}\\
+  \vone{\emph{Game raise}} & \vone{Minimum, balanced, 4-card fit.} \\
   \nt{2} & Natural, no 5-card suit. \\
   \sp{3}, \cl{4}/\di{}/\he{} & \emph{Splinter} bid 4-card fit
-                                   promised. \\
+                               promised. \\
   \nt{4} & \emph{Roman Key-Card Blackwood}. \hyperlink{blackwood}{\HandCuffRight} \\
   \hline
 \end{longtable}
@@ -441,7 +448,7 @@ from the above.
   \nt{3} & To play (by principle of fast arrival). \\
   \hline
 \end{longtable}
- 
+
 \section{Responses to \di{1}}
 
 \hypertarget{1d}
@@ -495,13 +502,13 @@ fit is found.
                            4-card major. \\
                 \end{tabular} \\
   \cl{2}/\di{} & 11-15\hcp, 4+-card suit, no 4-card major,
-                   \underline{forcing}. Opener's rebids are: \\
+                 \underline{forcing}. Opener's rebids are: \\
               & \begin{tabular}{lp{7cm}}
                   \he{2} & 11-14\hcp, \he{} stopper, no \sp{} stopper. \\
                   \sp{2} & 11-14\hcp, \sp{} stopper, no \he{} stopper. \\
                   \nt{2} & 11-14\hcp, stopper in both majors. \\
                   \di{2}/\di{3} & No stopper in majors, genuine \di{}
-                                   suit. \\
+                                  suit. \\
                   \he{3} & 15\hcp, \underline{game force}, \he{} stopper, no
                            \sp{} stopper. \\
                   \sp{3} & 15\hcp, \underline{game force}, \sp{} stopper, no
@@ -510,16 +517,16 @@ fit is found.
                   \cl{3} & No stopper in majors. \\
                 \end{tabular} \\
   \he{2}/\sp{} & Weak jump shift, 5+-card suit,
-                   non-forcing. Opener's rebids are: \\
+                 non-forcing. Opener's rebids are: \\
               & \begin{tabular}{p{1.1cm}p{7cm}}
                   \nt{2} & 11-12\hcp, no 4-card major. \\
                   \cl{3} & Shows both minors and asks responder to choose between
                            \cl{3}, \di{3} and \nt{3}. \\
                 \end{tabular} \\
-  {\color{blue}\nt{2}} & {\color{blue}15+\hcp, balanced, no 4-card major.} \\
+  \vone{\nt{2}} & \vone{15+\hcp, balanced, no 4-card major.} \\
   \di{3} & Up to 10\hcp, preemptive, 5+-cards in \di{}. \\
   \he{3}/\sp{} & 6-9\hcp, 7+-card suit, invitational to game with
-                   fit. \\
+                 fit. \\
   \nt{3} & 13-14\hcp, balanced, no 4-card major. \\
   \di{4} & Preemptive. \\
   \hline
@@ -586,7 +593,7 @@ Responses to a major opening include \emph{Bergen} raises,
                   \emph{Jump in new suit} & 5-5 distribution. \\
                 \end{tabular} \\
   \cl{2}/\di{}/\he{} & 8-15\hcp, 4-card minor or 5-card heart
-           suit (after \sp{1}). Opener's rebids are:\\
+                       suit (after \sp{1}). Opener's rebids are:\\
               & \begin{tabular}{p{2cm}p{6.5cm}}
                   \he{2} (following \sp{1}) & Natural, 4-card+ suit. \\
                   \sp{2} (following \he{1}) & 14-15\hcp, reverse. \underline{forcing}. \\
@@ -707,9 +714,9 @@ After an opponent's overcall, responder has the following choices:
   \emph{Double} & Penalty double. \\
   \emph{Suit at 2-level} & 0-6\hcp, natural and non-forcing. \\
   \nt{2} & \emph{Lebensohl}---partner must bid \cl{3}. See \ref{lebensohl}. \\
-  {\color{blue}\emph{Suit at 3-level}} & Natural, \underline{Forcing to game}. \\
-  {\color{blue}\emph{Cue bid}} & {\color{blue}Asks opener to bid a 4-card major
-                                 if he has one, denies a stopper in opponent's suit.} \\
+  \vone{\emph{Suit at 3-level}} & Natural, \underline{Forcing to game}. \\
+  \vone{\emph{Cue bid}} & \vone{Asks opener to bid a 4-card major
+                          if he has one, denies a stopper in opponent's suit.} \\
   \nt{3} & \emph{Lebensohl}---denies stopper in opponent's suit. See \ref{lebensohl}. \\
   \hline
 \end{longtable}
@@ -735,15 +742,15 @@ clarify his hand.
                                    \he{3} & \he{} and \di{} stoppers. \\
                                    \sp{3} & \sp{} and \di{} stoppers. \\
                                    \nt{3} & \he{} and \sp{} stoppers. \\
-                                   \end{tabular} \\
+                                 \end{tabular} \\
                   \cl{3} & 11-13\hcp, 6 clubs with 1 outside stopper. Responder bids
                            \di{3} to enquire about the stopper and opener's rebids are:\\
-                                 & \begin{tabular}{lp{4.5cm}}
-                                     \he{3} & \he{} stopper. \\
-                                     \sp{3} & \sp{} stopper. \\
-                                     \nt{3} & \di{} stopper.  \\
-                                     \di{4} & 5-card suit (6-5 in \cl{} and \di{}) \\
-                                   \end{tabular} \\
+                               & \begin{tabular}{lp{4.5cm}}
+                                   \he{3} & \he{} stopper. \\
+                                   \sp{3} & \sp{} stopper. \\
+                                   \nt{3} & \di{} stopper.  \\
+                                   \di{4} & 5-card suit (6-5 in \cl{} and \di{}) \\
+                                 \end{tabular} \\
                   \nt{3} & 14-15\hcp, 6-3-3-2 balanced hand, good club suit. \\
                   \he{3}/\sp{} & 14-15\hcp, 4-card suit. \\
                 \end{tabular} \\
@@ -754,7 +761,7 @@ clarify his hand.
                   \emph{New suit} & Maximum, 3+-card support, cue bid ace, slam try.  \\
                 \end{tabular} \\
   \he{2}/\sp{} & 8-10\hcp, non-forcing, invitational. Opener may
-                   pass with a minimum and mild support. \\
+                 pass with a minimum and mild support. \\
   \nt{2} & 10-11\hcp, invitation to \nt{3}. \\
   \cl{3} & 8-10\hcp, 3+-card support, no 5-card major,
            non-forcing. Opener may pass with a minimum or bid \nt{3} with a
@@ -796,7 +803,7 @@ game.
                 \end{tabular} \\
   \di{3} & 6+-card \di{} suit, invitation to \nt{3}. \\
   \he{3}/\sp{} & 7-9\hcp, preemptive, 5+-card suit. \\
-  {\color{blue}\he{4}/\sp{}, \cl{5}} & {\color{blue}Sign-off, to play.} \\
+  \vone{\he{4}/\sp{}, \cl{5}} & \vone{Sign-off, to play.} \\
   \hline
 \end{longtable}
 
@@ -828,43 +835,43 @@ minimum suit quality of 8 when vulnerable or 7 when non-vulnerable.
 
 \section{Responses to 2NT}
 
-{\color{blue} Opener is showing a balanced hand with
+\vone{ Opener is showing a balanced hand with
   22-23\hcp\ and no 5-card suit---this is the only 16+\hcp\ hand that
   is not opened with \cl{1}. Responses are: }
 
 \begin{longtable}{ p{1.5cm}p{9.5cm} }
   \hline
-  {\color{blue}\emph{Pass}} & {\color{blue}Very weak, no suit to escape to.} \\
-  {\color{blue}\di{3}/\he{}} & {\color{blue}Weak hand that doesn't want to play in no-trumps.
-                               \emph{Flint} convention---asks for a transfer to
-                               \he{}/\sp{} respectively.} \\
-  {\color{blue}\di{4}/\he{}} & {\color{blue}Transfer to \he{4}/\sp{} respectively.
-                               6+-card suit, to play.} \\
-  {\color{blue}\nt{3}} & {\color{blue}To play.} \\
-  {\color{blue}\cl{3}} & {\color{blue}\emph{Smolen Stayman}---asking for majors.
-                         Game-going with slam interest. Responses are:} \\
-              & \begin{tabular}{lp{8.5cm}}
-                  {\color{blue}\di{3}} & {\color{blue}No 4-card
+  \vone{\emph{Pass}} & \vone{Very weak, no suit to escape to.} \\
+  \vone{\di{3}/\he{}} & \vone{Weak hand that doesn't want to play in no-trumps.
+                        \emph{Flint} convention---asks for a transfer to
+                        \he{}/\sp{} respectively.} \\
+  \vone{\di{4}/\he{}} & \vone{Transfer to \he{4}/\sp{} respectively.
+                        6+-card suit, to play.} \\
+  \vone{\nt{3}} & \vone{To play.} \\
+  \vone{\cl{3}} & \vone{\emph{Smolen Stayman}---asking for majors.
+                  Game-going with slam interest. Responses are:} \\
+                     & \begin{tabular}{lp{8.5cm}}
+                         \vone{\di{3}} & \vone{No 4-card
                                          major---responder can now rebid:} \\
-                         & \begin{tabular}{lp{7.5cm}}
-                             {\color{blue}\he{3}} & {\color{blue}4-card \he{} and 5-card \sp{}
-                                                    (allows for 5-3 fit).} \\
-                             {\color{blue}\sp{3}} & {\color{blue}4-card \sp{} and 5-card \he{}
-                                                    (allows for 5-3 fit).} \\
-                             {\color{blue}\nt{3}} & {\color{blue}To play.} \\
-                             {\color{blue}\cl{4}} & {\color{blue}Transfer to diamonds.} \\
-                           \end{tabular} \\
-                  {\color{blue}\he{3}/\sp{}} & {\color{blue}4-card major.} \\
-                  {\color{blue}\nt{3}} & {\color{blue}4 cards in both majors.
+                                       & \begin{tabular}{lp{7.5cm}}
+                                           \vone{\he{3}} & \vone{4-card \he{} and 5-card \sp{}
+                                                           (allows for 5-3 fit).} \\
+                                           \vone{\sp{3}} & \vone{4-card \sp{} and 5-card \he{}
+                                                           (allows for 5-3 fit).} \\
+                                           \vone{\nt{3}} & \vone{To play.} \\
+                                           \vone{\cl{4}} & \vone{Transfer to diamonds.} \\
+                                         \end{tabular} \\
+                         \vone{\he{3}/\sp{}} & \vone{4-card major.} \\
+                         \vone{\nt{3}} & \vone{4 cards in both majors.
                                          Responder bids:} \\
-                         & \begin{tabular}{lp{7.5cm}}
-                             {\color{blue}\emph{Pass}} & {\color{blue}To play.} \\
-                             {\color{blue}\cl{4}/\di{}/\he{}} & {\color{blue}Transfer to
-                                                                \di{}/\he{}/\sp{} respectively.} \\
-                           \end{tabular} \\
-                \end{tabular} \\
-  {\color{blue}\sp{3}} & {\color{blue}Transfer to clubs with a
-                         correction to diamonds. \emph{Minor suit slam try}.} \\
+                                       & \begin{tabular}{lp{7.5cm}}
+                                           \vone{\emph{Pass}} & \vone{To play.} \\
+                                           \vone{\cl{4}/\di{}/\he{}} & \vone{Transfer to
+                                                                       \di{}/\he{}/\sp{} respectively.} \\
+                                         \end{tabular} \\
+                       \end{tabular} \\
+  \vone{\sp{3}} & \vone{Transfer to clubs with a
+                  correction to diamonds. \emph{Minor suit slam try}.} \\
   \hline
 \end{longtable}
 
@@ -1083,7 +1090,7 @@ that the strong hand becomes declarer. Responder's rebids are:
   \nt{2} & Balanced or semi-balanced hand with 5-card \he{} or
            \sp{}. Invitational---partner can pass or sign-off in 3 of major or bid \nt{3}. \\
   \cl{3}/\di{} & 4-card suit in addition to 5-card major,
-                   \underline{game forcing}.. \\
+                 \underline{game forcing}.. \\
   \emph{Raise} & 6-card suit, invitational. \\
   \he{3} & (After \sp{2}) 5-5 in the majors with slam
            interest. Stronger than an immediate jump to \he{4}. \\
