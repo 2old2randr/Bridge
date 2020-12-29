@@ -4,6 +4,7 @@
 \maxtocdepth{subsection}
 \usepackage{microtype}
 \usepackage{longtable}
+\usepackage{nicefrac}
 \usepackage{hyperref}
 \usepackage{bbding}
 \usepackage{xcolor}
@@ -26,7 +27,7 @@
 
 \title{COSL Precision Bidding System}
 \author{Sudhir}
-\date{v2.1, December 2020}
+\date{v2.2, 29 December 2020}
 \maketitle
 
 \tableofcontents
@@ -71,11 +72,12 @@ e.g., \hhand{AQJT,KQ,76,J7642} or \hhand{AKT9,AK98,432,32}.
   \emph{3 of suit} & Pre-emptive, $<10$\hcp, $7^+$-card suit (\sq\ of 9
                      when vulnerable and 8 non-vulnerable). Apply rule of
                      2/3/4.\hyperlink{3preempt}{\HandCuffRight} \\
-  \nt{3} & ``Gambling'', solid $7^+$-card minor suit \vtwo{with nothing
-           outside in $1^{st}$ or $2^{nd}$ position. In third or
-           fourth position,} any side suit has
-           limited strength.\hyperlink{3nt}{\HandCuffRight} \\
-  \vtwo{\cl{4}/\di{}} & \vtwo{Pre-emptive, $8^+$-card suit.} \\
+  \nt{3} & ``Gambling'', solid $7^+$-card minor suit \vtwo{(\emph{AKQ}
+           or better) with no outside ace or king}.\hyperlink{3nt}{\HandCuffRight} \\
+  \vtwo{\cl{4}/\di{}} & \vtwo{\emph{Namyats}---long major suit (usually $8^+$-cards)
+                        with 8 or more tricks. Used in $1^{st}$ or $2^{nd}$
+                        seat only.\hyperlink{namyats}{\HandCuffRight} } \\
+  \vtwo{\he{4}/\sp{}} & \vtwo{Pre-emptive with $7\nicefrac{1}{2}$ tricks.} \\
   \hline
 \end{longtable}
 
@@ -519,47 +521,130 @@ strength and fit in steps as below. \vone{This is a support asking bid
 
 \subsection{Handling intervention over \cl{1}}
 
-If an opponent doubles \cl{1}, the responses other than \di{1} remain
-the same. However, the additional possible responses of \emph{Pass}
-and \emph{Redouble} are used to provide more granular
-information. Over an opponent's overcall in a suit at the 1-level (or
-a \nt{1} overcall), different responses are used as in the table
-below.
+Over a double of \cl{1}, the additional bids of \emph{Redouble} and
+\emph{Pass} are used to provide more information. When the double is
+conventional (e.g., shows both majors), the bidding is the same except
+that a bid of \nt{1} would also confirm stoppers in both majors. All
+other bids retain their normal meaning.
 
 \begin{longtable}{ p{1.5cm}p{9.5cm} }
   \hline
-  \multicolumn{2}{l}{\emph{\underline{After \cl{1}--Double}}} \\
+  \multicolumn{2}{l}{\emph{\underline{After \cl{1}--(Double)}}} \\
   \emph{Pass} & 0-4\hcp. \\
-  \di{1} & 5-7\hcp, \forcing{} \\
-  \emph{Redouble} & $8^+$\hcp, 4-4 in the major suits. \\
+  \di{1} & 5-7\hcp, artificial. \forcing{} \\
+  \emph{Redouble} & \vtwo{$8^+$\hcp, usually balanced.} \forcing{ to
+                    game}. \\
+  \vtwo{\nt{1}} & \vtwo{Normal 8-13\hcp, but if the double shows a two-suited hand,
+                  shows stoppers in both implied suits.} \\
   \emph{Others} & Same as over \cl{1} without intervention. \\
-  \multicolumn{2}{l}{\emph{\underline{After \cl{1}--\di{1}/\he{}/\sp{}}}} \\
-  \emph{Pass} & 0-4\hcp. \\
-  \emph{New suit} & 5-8\hcp, $5^+$-card suit. \\
-  \emph{Jump in new suit} & 8-10\hcp, $6^+$-card suit. \\
-  \nt{1} & 9-11\hcp\ with stopper in opponent's suit. \\
-  \nt{2} & 12-14\hcp\ with one or two stoppers. \\
-  \emph{Double} & 5-8\hcp\ or $9^+$\hcp, no 5-card suit,
-                  \underline{takeout}. Cue bid on next round clarifies hand as
-                  $9^+$\hcp. \\
-  \emph{Cue Bid} & $9^+$\hcp, \forcing{ to game} \\
-  \multicolumn{2}{l}{\emph{\underline{After \cl{1}--\nt{1}}}} \\
-  \emph{Pass} & 0-4\hcp. \\
-  \emph{New suit} & 5-8\hcp, $5^+$-card suit. \\
-  \emph{Double} & $5^+$\hcp. \\
-  \multicolumn{2}{l}{\emph{\vone{\underline{At 2-level}}}} \\
-  \vone{\emph{Pass}} & \vone{0-4\hcp\ or $9^+$\hcp\
-                       with strength in opponent's suit.} \\
-  \vone{\emph{New suit}} & \vone{5-8\hcp, $5^+$-card suit.} \\
-  \vone{\emph{Double}} & \vone{$5^+$\hcp.} \\
-  \multicolumn{2}{l}{\emph{\vone{\underline{At 3-level}}}} \\
-  \vone{\emph{Double}} & \vone{$5^+$\hcp, takeout.} \\
-  \multicolumn{2}{l}{\emph{\vone{\underline{At 4-level}}}} \\
-  \vone{\emph{Double}} & \vone{Weak hand.} \\
-  \vone{\emph{Pass}} & \vone{\underline{\emph{\forcing{ pass,}}}
-                       ask opener to take action.} \\
   \hline
 \end{longtable}
+
+After an overcall in a suit at the one-level, any suit or no-trump bid
+is a positive response forcing to game. A \emph{trap pass} can be made
+when responder wants to double for penalties---in this case, he will
+pass a re-opening double by opener.
+
+When opponents overcall with \nt{1}, the responses are different
+depending on whether the overcall is a genuine strong hand or
+conventional showing a two-suiter (the \emph{unusual no-trump}). In
+the latter case, the \emph{unusual over unusual} approach repurposes
+the \cl{2} and \di{2} bids to show a game-going hand with a major
+suit.
+
+\begin{longtable}{ p{1.5cm}p{9.5cm} }
+  \hline
+  \multicolumn{2}{l}{\emph{\underline{After a one-level suit overcall \cl{1}--(\di{1}/\he{1}/\sp{1})}}} \\
+  \emph{Pass} & 0-4\hcp\ \vtwo{or a \emph{trap pass}}. \\
+  \emph{Double} & 5-8\hcp\ unbalanced \vtwo{or $5^+$\hcp, balanced}. \\
+  \emph{Suit} & Natural, $5^+$-card suit. \forcing{ to game} \\
+  \emph{Jump to \cl{3}/\di{3}} & Unusual positive with 4-4-4-1. \\
+  \emph{Cue Bid} & \vtwo{Balanced hand with \emph{no stopper} in opponent's
+                   suit}, \forcing{ to game} \\
+  \nt{} & Usual meaning \vtwo{and promises a stopper in opponent's suit}. \\
+  \multicolumn{2}{l}{\emph{\underline{After a no-trump overcall \cl{1}--(\nt{1}) showing minors}}} \\
+  \emph{Double} & Modest high-card points, suitable for penalising one
+                  of opponent's suits, usually no 5-card major. \\
+  \cl{2} & $5^+$-card heart suit, \forcing{ to game.} \\
+  \di{2} &  $5^+$-card spade suit, \forcing{ to game.} \\
+              & \vtwo{The above two bids are the so-called
+                \emph{unusual over unusual} responses in which cue
+                bids of known suits correspond to forcing bids in the
+                unbid suits.} \\
+  \he{2}/\sp{} & Natural, non-forcing. \\
+  \multicolumn{2}{l}{\emph{\underline{After a genuine no-trump overcall of \cl{1}--(\nt{1})}}} \\
+  \emph{Pass} & 0-4\hcp. \\
+  \emph{Double} & $5^+$\hcp, balanced---for penalties. \\
+  \emph{Suit} & 5-8\hcp, $5^+$-card suit. \\
+  \hline
+\end{longtable}
+
+Over higher level overcalls, bidding is largely natural but responses
+over an unusual \nt{2} are still \emph{unusual over unusual} and not
+specifically mentioned in the table below.
+
+\begin{longtable}{ p{1.5cm}p{9.5cm} }
+  \hline
+  \multicolumn{2}{l}{\emph{\vone{\underline{After an overcall at 2-level}}}} \\
+  \vone{\emph{Double}} & \vtwo{6-8\hcp, any shape. Any suit rebid by
+                         opener would be a one-round force.} \\
+  \vone{\emph{Suit}} & \vtwo{Natural and \forcing{ to game.}
+                                               Note that a jump to \di{3} over \cl{2} would
+                                               be an unusual positive.} \\
+  \vtwo{\nt{2}} & \vtwo{8-10 or $14^+$\hcp, with stoppers.} \\
+  \vtwo{\nt{3}} & \vtwo{11-13\hcp\ with stoppers.} \\
+  \vtwo{\emph{Cue bid}} & \vtwo{Values to be in game but no clear-cut
+                          action---no long suit, no stopper in
+                          overcaller's suit.} \\
+  \multicolumn{2}{l}{\emph{\vone{\underline{After an overcall at 3-level}}}} \\
+  \vone{\emph{Double}} & \vtwo{Balanced hand with $8^+$\hcp.} \\
+  \vtwo{\emph{Suit}} & \vtwo{Positive, natural, \forcing{to game}} \\
+  \vtwo{\nt{3}} & \vtwo{8-11\hcp\ with stoppers.} \\
+  \multicolumn{2}{l}{\emph{\vone{\underline{After an overcall at 4-level}}}} \\
+  \vone{\emph{Double}} & \vtwo{Shows values---support for partner if
+                         he bids and provides defence if he passes.} \\
+  \vtwo{\emph{Suit}} & \vtwo{Natural.} \\
+  \hline
+\end{longtable}
+
+\vtwo{
+  If the intervention occurs after responder bids, e.g.,
+  \cl{1}--(\emph{Pass})--\di{1}--(\emph{RHO bids}), opener should rebid
+  as follows:
+
+\begin{longtable}{ p{1.5cm}p{9.5cm} }
+  \hline
+  \multicolumn{2}{l}{\emph{\underline{After \cl{1}--(Pass)--\di{1}--(\he{1}/\sp{1})}}} \\
+  \emph{Pass} & Balanced minimum (no 5-card suit). \\
+  \emph{Double} & Takeout with support for other suits. \\
+  \emph{Suit} & Natural, at least 5-cards, non-forcing. \\
+  \nt{1} & Upper end of the range with stopper. \\
+  \nt{2} & Same as \nt{2} without interference but promises stopper. \\
+  \emph{Cue bid} & Strong hand, lacking stopper in overcalled suit. \\
+  \multicolumn{2}{l}{\emph{\underline{After \cl{1}--(Pass)--\di{1}--(\nt{1} showing minors)}}} \\
+  \emph{Pass} & Balanced minimum (no 5-card suit). \\
+  \emph{Double} & Penalty oriented. \\
+  \cl{2} & Heart suit with extra values (\emph{unusual over
+           unusual}). \\
+  \di{2} & Spade suit with extra values (\emph{unusual over
+           unusual}). \\
+  \he{2}/\sp{} & Natural, non-forcing. \\
+  \nt{2} & Upper-end of the \nt{1} rebid range with stoppers. \\
+  \multicolumn{2}{l}{\emph{\underline{After \cl{1}--(Pass)--\di{1}--(Double---usually shows diamonds)}}} \\
+  \emph{Pass} & Balanced minimum (no 5-card suit). \\
+  \nt{1} & Upper end of range with diamond stopper. \\
+  \emph{Suit} & Same meaning as without the double. \\
+  \multicolumn{2}{l}{\emph{\underline{After an intervention above 1-level}}} \\
+  \emph{Pass} & Balanced minimum (no 5-card suit). \\
+  \emph{Others} & Little extra weight as compared to without the
+                  intervention.
+
+                  \emph{Unusual/unusual} applies over a \nt{2} overcall. \\
+  \hline
+\end{longtable}
+}
+
+\vtwo{\hyperlink{ex1cintervene}{Bidding Examples}}
 
 \section{Responses to \di{1}}
 
@@ -852,7 +937,7 @@ If an opponent doubles \nt{1}, responder can bid:
 \begin{longtable}{ p{1.5cm}p{9.5cm}  }
   \hline
   \emph{Pass} & Weak or 6-11\hcp, balanced. \\
-  \emph{Redouble} & 5-card suit, asking partner to bid \cl{2} and then
+  \emph{Redouble} & SOS---5-card suit, asking partner to bid \cl{2} and then
                     pass or rectify. \\
   \cl{2} & 4-card suit (or good 3-card clubs). \\
   \di{2} & Short in clubs. \\
@@ -937,6 +1022,7 @@ asks opener to further describe his hand.
   \emph{Negative double} & Through \sp{3}. \\
   \emph{Redouble} & 10+\hcp. \\
   \emph{Cue bid} & 12+\hcp, singleton or void in opponent's suit. \\
+  \emph{New Suit} & Any new suit bid is \forcing. \\
   \hline
 \end{longtable}
 
@@ -1074,15 +1160,95 @@ After a preemptive opening of three of a suit, responder's rebids are:
 \section{Responses to 3NT}
 
 \hypertarget{3nt}
-Responses to the gambling \nt{3} are:
+The ``gambling'' \nt{3} bid shows a solid $7^+$-card minor suit with
+\emph{AKQ} or better and no outside ace or king. Responses are:
 
 \begin{longtable}{p{1.5cm}p{9.5cm}}
   \hline
-  \cl{4} & Escape---asks opener to pass or bid \di{4} if that is his suit. \\
-  \di{4} & Asks opener to bid his short suit(s). \\
-  \nt{4} & Quantitative, asking opener if he has an $8^+$-card suit. \\
+  \emph{Pass} & To play, stoppers in side suits. \\
+  \cl{4} & Escape---asks opener to pass or bid \di{4} if that is his
+           suit. \\
+  \di{4} & Asks opener to bid a singleton or void if he has one.
+           Responses: \\
+              & \begin{tabular}{lp{6cm}}
+                  \vtwo{\he{4}/\sp{}} & \vtwo{Singleton or void in the
+                                        bid suit.} \\
+                  \vtwo{\nt{4}} & \vtwo{Singleton or void in the other
+                                  minor.} \\
+                  \vtwo{\cl{5}/\di{}} & \vtwo{Shows that minor and
+                                        denies a singleton or void.} \\
+                \end{tabular} \\
+  \vtwo{\he{4}/\sp{}} & \vtwo{Natural, to play.} \\
+  \nt{4} & Quantitative, asking opener \vtwo{to bid \nt{6} with extra
+           length or an extra trick outside (such as \emph{Qxx})}. \\
+  \vtwo{\cl{5}} & \vtwo{Sign-off and weak. Opener should correct to
+                  \di{5} if that is his suit.} \\
+  \vtwo{\di{5}} & \vtwo{Also a sign-off but responder indicates he
+                  knows opener's suit is diamonds and it would be
+                  advantageous to play from his side.} \\
+  \vtwo{\nt{5}} & \vtwo{Grand Slam try showing no losers outside the
+                  trump suit but indicating a void in opener's
+                  suit. If opener is completely solid (e.g.,
+                  \emph{AKQJ} to seven card), he bids 7 otherwise he
+                  bids 6.} \\
+  \vtwo{\cl{6}} & \vtwo{Asks opener to pass or correct. This could
+                  also be a tactical bid.} \\
   \hline
 \end{longtable}
+
+\vtwo{\hyperlink{ex3nt}{Bidding Examples}}
+
+\section{Responses to \cl{4}/\di{4} (Namyats)}
+
+\vtwo{
+  \hypertarget{namyats}
+  The \emph{Namyats} convention (\emph{Stayman} spelt backwards) shows
+  a long (normally eight cards) major with eight or more playing
+  tricks but not much playing strength outside the trump suit (\cl{4}
+  shows hearts and \di{4} shows spades). The bid is meant to be
+  constructive than pre-emptive and allows you to distinguish hands
+  that are close to game versus purely pre-emptive openings. Responses
+  are:
+
+  \begin{longtable}{p{1.5cm}p{9.5cm}}
+    \hline
+    \he{4}/\sp{} & Bidding game in partner's suit is a sign-off with
+                   no slam interest (responder wants to be declarer). \\
+    \di{4}/\he{} & The next step above opener's bid is a relay asking
+                   him to bid his suit (\he{} or \sp{}). After opener
+                   bids his suit, any new suit bid by responder is a
+                   cue bid. Responder passes if he does not have slam
+                   interest but wants his hand to be dummy. \\
+    \nt{4} & \emph{Roman Key-Card Blackwood}. \\
+    \emph{Suit} & $\epsilon$ asking bid. A compressed scale of
+                  responses is used (note that the steps skip over
+                  \nt{} because that has a special meaning): \\
+                 & \begin{tabular}{lp{6.5cm}}
+                     \emph{Cheapest NT} & Guarded king in suit. When
+                                          you have ample tricks
+                                          elsewhere, this allows you
+                                          to declare an \nt{} contract
+                                          from the correct side. \\
+                     \emph{1 step} & No control. \\
+                     \emph{2 steps} & Second round control---any
+                                      singleton. \\
+                     \emph{3 steps} & First round control---void or
+                                      ace. \\
+                                        & A repeat ask is for third
+                                          round control---a doubleton
+                                          or guarded queen and
+                                          responses are (a) No third
+                                          round control: $1^{st}$
+                                          step, (b) Doubleton:
+                                          $2^{nd}$ step and (c)
+                                          Guarded Queen: $3^{rd}$
+                                          step.  \\
+                   \end{tabular} \\
+  \hline
+\end{longtable}
+}
+
+\vtwo{\hyperlink{namyats}{Bidding Examples}}
 
 \section{Competitive Bidding}
 
@@ -1749,6 +1915,97 @@ $4^+$-controls, $12^+$\hcp \\ (2) $\beta$ asking for controls \\
 Barring horrendous breaks and a ruff on the opening lead, this
 27-point grand slam is lay-down.
 
+\subsection{Intervention over \cl{1}}
+
+\hypertarget{ex1cintervene}
+Some examples of bidding after opponents double over a \cl{1}
+opening.
+
+\begin{longtable}{r>{\raggedright}p{2.4cm}p{7cm}}
+  \multicolumn{3}{l}{\emph{\underline{After \cl{1}--(Double)}}} \\
+  1 & \hhand{J84,AJ82,T5,KT42} & If the double is an ordinary takeout
+                                 double either \emph{Redouble} or bid
+                                 \nt{1} showing a balanced 8-13\hcp\
+                                 if vulnerable.
+
+                                 If the double shows majors,
+                                 \emph{Redouble}. If partner doubles
+                                 \sp{1}, you will be delighted to
+                                 defend. \\
+  2 & \hhand{A87,8,KJ8654,Q63} & Bid \di{2}. Slam is a real
+                                 possibility despite the double. \\
+  3 & \hhand{QT3,,JT9753,QT93} & Bid \di{1} (5-8\hcp). If partner bids
+                                 \he{1}, you will bid \di{2} showing
+                                 the long suit. \\
+  4 & \hhand{AQ,A863,QJT,JT85} & Bid \nt{2} showing a balanced
+                                 $14^+$\hcp hand and good stoppers in
+                                 the majors. If the double is real
+                                 (not a mistake showing clubs), the
+                                 information of length in majors on
+                                 the right is likely to be useful in
+                                 the play. \\
+  5 & \hhand{6,KJT5,A732,JT87} & Bid \cl{3} showing the 4-4-4-1 hand
+                                 with a black singleton. \\
+\end{longtable}
+
+\begin{longtable}{r>{\raggedright}p{2.4cm}p{7cm}}
+  \multicolumn{3}{l}{\emph{\underline{After \cl{1}--(\sp{1})}}} \\
+  6 & \hhand{Q,AQJ32,KJ63,J97} & Bid \he{2} which is natural and game
+                                 forcing. \\
+  7 & \hhand{4,J8654,T976,KJ6} & \emph{Double} to show 5-8\hcp.\\
+  8 & \hhand{T953,4,A764,AQ92} & Bid \di{3}, unusual positive showing
+                                 4-4-4-1 with a red singleton. \\
+  9 & \hhand{J,Q652,AQT964,T2} & Bid \di{2}, natural and forcing. \\
+  10 & \hhand{953,AT43,AJ72,95} & Bid \sp{2}. There is enough to force
+                                  game but no suit to bid and no
+                                  stopper to bid \nt{}. \\
+\end{longtable}
+
+\begin{longtable}{r>{\raggedright}p{2.4cm}p{7cm}}
+  \multicolumn{3}{l}{\emph{\underline{After \cl{1}--(\nt{1}) (showing minors)}}} \\
+  11 & \hhand{T9,AQ64,K862,AQ5} & \emph{Double} for penalties. If
+                                  partner bids hearts, explore for
+                                  slam. If not, you can also bid
+                                  no-trump since the combined hands
+                                  are in the slam zone. \\
+  12 & \hhand{AT942,Q4,743,T98} & Bid \sp{2} (non-forcing). \\
+  13 & \hhand{K9743,AQ98,92,87} & Bid \di{2} showing spades and
+                                  forcing to game. \\
+  14 & \hhand{AQ2,AT82,KJ3,874} & \emph{Double} showing values with a
+                                  balanced hand. If partner bids
+                                  \nt{2}, you can show the 4-card
+                                  hearts on the way to \nt{3}. \\
+  15 & \hhand{A4,J98,KT64,KT87} & \emph{Double} (penalty oriented)
+                                  showing values with a balanced hand.
+                                  There will be a massacre if the
+                                  final contract is in either minor. \\
+\end{longtable}
+
+\begin{longtable}{r>{\raggedright}p{2.4cm}p{7cm}}
+  \multicolumn{3}{l}{\emph{\underline{After \cl{1}--(\he{2})}}} \\
+  16 & \hhand{AQT,85,K74,KQT96} & Bid \cl{3} which is natural and
+                                  forcing. The main reason for not cue
+                                  bidding is that this hand will make
+                                  an excellent dummy should partner
+                                  bid \di{3} or \sp{3} which you will
+                                  happily raise showing slam interest
+                                  by bypassing \nt{3}. \\
+  17 & \hhand{9872,52,AKJ4,T64} & \emph{Double}. This is more flexible
+                                  than cue bidding \he{3}. Partner can
+                                  bid \nt{2} with a stopper and then
+                                  you could bid \cl{3}
+                                  (\emph{Stayman}). \\
+  18 & \hhand{QJ432,A6,JT63,K4} & Bid \sp{2}. \\
+  19 & \hhand{4,KJT94,QJ7,A732} & \emph{Pass}. You are certain partner
+                                  will bid again and you hope it is a
+                                  double. The penalty will be a rich
+                                  one if so. \\
+  20 & \hhand{AK64,8765,AKQ7,7} & Bid \he{3}---game-forcing with no
+                                  heart stopper and no long suit. You
+                                  can explore slam after getting more
+                                  information from partner. \\
+\end{longtable}
+
 \subsection{The \di{1} Opening}
 
 \hypertarget{ex1d}
@@ -2027,6 +2284,57 @@ Some examples of bidding after a \di{2} opening.
                                   they do it is likely you have a
                                   penalty double against them in
                                   spades. \\
+\end{longtable}
+
+\subsection{``Gambling'' and ``Namyats'' openings}
+
+\begin{longtable}{r>{\raggedright}p{2.4cm}p{7cm}}
+  \multicolumn{3}{l}{\emph{\underline{Responding to a ``Gambling'' \nt{3}}}} \\
+  1 & \hhand{32,AK85,AKJ43,JT} & Bid \di{4} asking partner to show
+                                 singletons or voids. If he is short
+                                 in spades, you can commit to a club
+                                 slam. \\
+  2 & \hhand{AQJ,9743,T6,AJ86} & \emph{Pass}. Opponents may be able to
+                                 run some hearts but the odds are in
+                                 your favour. Even if someone has five
+                                 hearts, he may not be on lead or
+                                 the suit may be blocked. \\
+  3 & \hhand{A92,AK97652,,A85} & Bid \nt{5}. This asks partner to bid
+                                 \di{7} with \emph{AKQJ}. You
+                                 certainly want to be in \di{6}
+                                 although there are no guarantees. \\
+  4 & \hhand{A,AKQT84,KQJ9,54} & Bid \cl{6} which should be cold. \\
+  5 & \hhand{QJ84,65,T87,JT97} & Bid \cl{5}. You don't care what
+                                 partner's suit is (although it looks
+                                 to be diamonds). What you know is
+                                 that opponents can make a lot of
+                                 tricks in hearts (or even spades) and
+                                 this robs them of room to find their
+                                 best spot. \\
+\end{longtable}
+
+\begin{longtable}{r>{\raggedright}p{2.4cm}p{7cm}}
+  \multicolumn{3}{l}{\emph{\underline{Responding to a ``Namyats'' \di{4} opening}}} \\
+  6 & \hhand{T,A765,KQ95,AK32} & Bid \nt{4} (\emph{RKCB}). \\
+  7 & \hhand{874,KJT9,KQ65,KJ} & Bid \sp{4}. Partner cannot have many
+                                 aces in addition to a solid suit (he
+                                 probably would have opened \cl{1} if
+                                 so) so slam is out of question. \\
+  8 & \hhand{972,QJ,AK652,AJT} & Bid \he{4}, a relay to partner's
+                                 suit. You plan to cue bid \cl{5}
+                                 inviting slam and if partner has a
+                                 cue bid in hearts, you can bid
+                                 \sp{6}. \\
+  9 & \hhand{J752,A92,AKQ53,4} & Bid \nt{4}. If partner shows 3 key
+                                 cards, you will bid \sp{7}. This is
+                                 likely to be lay-down after the
+                                 opening lead. \\
+  10 & \hhand{872,AQJ73,,AT742} & With a solid suit and the heart
+                                  king, \sp{7} is odds-on.
+                                  Since there is no way to confirm
+                                  both of these (an asking bid will
+                                  only find the heart king), it is
+                                  probably best to simply bid \sp{6}. \\
 \end{longtable}
 
 \end{document}
