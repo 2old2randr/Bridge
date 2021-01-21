@@ -44,29 +44,29 @@
 %You WILL get errors if you delete any \newcommand statements!
 %If you lead the default card, you may use \newcommand}{cardcombination}{}.
 
-\newcommand{\names}{COSL Precision}
-\newcommand{\playernumber}{Dec 2020}
+\newcommand{\names}{0X2Grind, 2old2randr, karthik\_, madhu\_\_, OrpSlam, rsm097}
+\newcommand{\playernumber}{}
 
 %General approach:
 \newcommand{\generalapproach}{Precision}
 %\setboolean{gf}{true} %2/1 Game Forcing
-%\setboolean{gfewsr}{true}
+\setboolean{gfewsr}{true}
 %\setbooleab{vlop}{true} %Very light...
 %\setboolean{vl3h}{true}
 %\setboolean{vloc}{true}
 %\setboolean{vlpr}{true}
 \setboolean{fo1c}{true} %Forcing openings...
 %\setboolean{fo2c}{true}
-%\setboolean{fon2b}{true}
-%\setboolean{foother}{true}
-\newcommand{\foothertext}{}%Other forcing opening bids
+\setboolean{fon2b}{true}
+\setboolean{foother}{true}
+\newcommand{\foothertext}{2\d\ is 4-4-1-4}%Other forcing opening bids
 
 %Notrump openings:
 %First column:
-\newcommand{\ntlowtext}{13} %NT range
-\newcommand{\nthightext}{15}
-\newcommand{\altntlowtext}{} %If variable NT, second range here
-\newcommand{\altnthightext}{}
+\newcommand{\ntlowtext}{14} %NT range
+\newcommand{\nthightext}{16}
+\newcommand{\altntlowtext}{15} %If variable NT, second range here
+\newcommand{\altnthightext}{17}
 %\setboolean{nt5cm}{true}
 \newcommand{\sysontext}{} %Systems on after 1NT-(X), 2\c, etc...
 \setboolean{staym}{true}
@@ -75,34 +75,34 @@
 %\setboolean{fstay}{true}
 \setboolean{jac2h}{true}
 \newcommand{\ntsptext}{Minor-suit Stayman} %1NT-2S
-\newcommand{\ntnttext}{10-11, invite} %1NT-2NT
+\newcommand{\ntnttext}{9-10, invite} %1NT-2NT
 
 %NT openings - 2nd column:
-\newcommand{\ntcjumptext}{} %1NT-3C
-\newcommand{\ntdjumptext}{}
-\newcommand{\nthjumptext}{}
-\newcommand{\ntsjumptext}{} %1NT-3S
+\newcommand{\ntcjumptext}{Game force} %1NT-3C
+\newcommand{\ntdjumptext}{Game force}
+\newcommand{\nthjumptext}{Game force}
+\newcommand{\ntsjumptext}{Game force} %1NT-3S
 \newcommand{\ntextratext}{} %Blank line next to puppet stayman
 \setboolean{texas}{true}
 %\setboolean{smole}{true}
 \setboolean{leben}{true}
 \newcommand{\ntlebentext}{Fast} %Lebensohl: Fast or slow denies?
-%\setboolean{ntneg}{true}
-\newcommand{\ntnegtext}{} %Negative doubles over 1NT?
-\newcommand{\ntothertext}{} %Other conventions over 1NT
+\setboolean{ntneg}{true}
+\newcommand{\ntnegtext}{Weak NT} %Negative doubles over 1NT?
+\newcommand{\ntothertext}{Meckwell, Cappelletti} %Other conventions over 1NT
 
 %2NT/3NT openings
-\newcommand{\twonlowtext}{}
-\newcommand{\twonhightext}{}
+\newcommand{\twonlowtext}{22}
+\newcommand{\twonhightext}{23}
 %\setboolean{pup2n}{true}
-%\setboolean{jac2n}{true}
-%\setboolean{tex2n}{true}
-\newcommand{\twonsptext}{} %2NT-3S
-\newcommand{\twonextratext}{} %Blank line in 2NT box
+\setboolean{jac2n}{true}
+\setboolean{tex2n}{true}
+\newcommand{\twonsptext}{Transfer to 3\c} %2NT-3S
+\newcommand{\twonextratext}{3\c\ is Stayman} %Blank line in 2NT box
 \newcommand{\threenlowtext}{} %3NT range
 \newcommand{\threenhightext}{}
 \newcommand{\threenextratext}{Gambling} %Blank line in 3NT box
-\newcommand{\convnttext}{2NT---Minor 2-suiter} % Blank lines under 3NT box
+\newcommand{\convnttext}{} % Blank lines under 3NT box
 \newcommand{\convntextratext}{}
 
 %Major openings:
@@ -114,17 +114,17 @@
 %\setboolean{dblri}{true}
 \setboolean{dblrw}{true}
 %\setboolean{ocdrf}{true} %double raise in comp
-%\setboolean{ocdri}{true}
+\setboolean{ocdri}{true}
 %\setboolean{ocdrw}{true}
-%\setboolean{ra2nt}{true} %Jacoby
-%\setboolean{ra3nt}{true} %1M-3NT
-%\setboolean{raspl}{true} %Splinter
+\setboolean{ra2nt}{true} %Jacoby
+\setboolean{ra3nt}{true} %1M-3NT
+\setboolean{raspl}{true} %Splinter
 \newcommand{\majraisetext}{Bergen} %Text line for Bergen, fitjumps, etc
 \setboolean{ntfor}{true} %1NT forcing
 %\setboolean{ntsem}{true} %1NT semiforcing
 \setboolean{twonf}{true}
 %\setboolean{twoni}{true}
-\newcommand{\majtwonlowtext}{13+}
+\newcommand{\majtwonlowtext}{12+}
 \newcommand{\majtwonhightext}{}
 \newcommand{\majthreenlowtext}{14} %1M-3NT range
 \newcommand{\majthreenhightext}{15}
@@ -141,7 +141,7 @@
 %\setboolean{cl2nf}{true}
 \setboolean{clcon}{true}
 \newcommand{\clopennote}{16+} % Insert text in blank space next to 1C
-\newcommand{\diopennote}{} % Insert text in blank space next to 1D e.g. ``4 unless 4-4-3-2'' 
+\newcommand{\diopennote}{can be 2} % Insert text in blank space next to 1D e.g. ``4 unless 4-4-3-2'' 
 %\setboolean{diam4}{true} %1D length
 \setboolean{diam3}{true}
 %\setboolean{di2nf}{true}
@@ -150,40 +150,40 @@
 %\setboolean{midri}{true}
 \setboolean{midrw}{true}
 %\setboolean{modrf}{true} %double raise in comp
-%\setboolean{modri}{true}
+\setboolean{modri}{true}
 %\setboolean{modrw}{true}
 %\setboolean{jsomi}{true} %JS in other minor
 \setboolean{inver}{true} %Inverted raise
-\newcommand{\minraisetext}{} %Textbox next to inverted raise
+\newcommand{\minraisetext}{11+, 5-card} %Textbox next to inverted raise
 %\setboolean{bypas}{true}
 \newcommand{\minonenlowtext}{8} %1C-1NT range
-\newcommand{\minonenhightext}{13}
-\setboolean{m2ntf}{true} %1C-2NT
-%\setboolean{m2nti}{true}
-\newcommand{\mintwonlowtext}{15+}
-\newcommand{\mintwonhightext}{}
-\newcommand{\minthreenlowtext}{}
-\newcommand{\minthreenhightext}{}
-\newcommand{\minothertext}{} %Other minor suit methods (1m-3M splinter etc)
+\newcommand{\minonenhightext}{10}
+%\setboolean{m2ntf}{true} %1C-2NT
+\setboolean{m2nti}{true}
+\newcommand{\mintwonlowtext}{11}
+\newcommand{\mintwonhightext}{12}
+\newcommand{\minthreenlowtext}{13}
+\newcommand{\minthreenhightext}{15}
+\newcommand{\minothertext}{3\h, 3\s, 4\c\ splinters} %Other minor suit methods (1m-3M splinter etc)
 
 %2-bids
 %\setboolean{st2cl}{true} %2C strong?
-%\setboolean{ot2cl}{true}
+\setboolean{ot2cl}{true}
 %\setboolean{neg2d}{true} %2D neg or waiting?
 %\setboolean{wai2d}{true}
 \newcommand{\twoclowtext}{11} %2C point range
 \newcommand{\twochightext}{15}
-\newcommand{\twocldescribetop}{6+-card or} %3 lines of text on left side of 2C divider
-\newcommand{\twocldescribemiddle}{5-card w/ major}
+\newcommand{\twocldescribetop}{6+-card} %3 lines of text on left side of 2C divider
+\newcommand{\twocldescribemiddle}{}
 \newcommand{\twocldescribebottom}{}
-\newcommand{\twoclresponsetop}{2\c\ conventional} %3 lines of text on right side of 2C divider
-\newcommand{\twoclresponsemiddle}{}
+\newcommand{\twoclresponsetop}{} %3 lines of text on right side of 2C divider
+\newcommand{\twoclresponsemiddle}{2\d\ artificial, forcing}
 \newcommand{\twoclresponsebottom}{}
 
 \newcommand{\twodlowtext}{11} %2D point range
 \newcommand{\twodhightext}{15}
 \newcommand{\twoddescribe}{3-suiter}
-\newcommand{\twodresponse}{}
+\newcommand{\twodresponse}{2NT artificial, forcing}
 
 %\setboolean{wk2di}{true} %2D weak
 %\setboolean{in2di}{true}
@@ -200,7 +200,7 @@
 %\setboolean{in2he}{true}
 %\setboolean{st2he}{true}
 %\setboolean{co2he}{true}
-%\setboolean{hentf}{true}
+\setboolean{hentf}{true}
 %\setboolean{hnsnf}{true}
 %2S:
 \newcommand{\twoslowtext}{8}
@@ -211,11 +211,11 @@
 %\setboolean{in2sp}{true}
 %\setboolean{st2sp}{true}
 %\setboolean{co2sp}{true}
-%\setboolean{spntf}{true}
+\setboolean{spntf}{true}
 %\setboolean{snsnf}{true}
 
 %Bottom of card:
-\setboolean{nmf1w}{true} %1-way new minor
+%\setboolean{nmf1w}{true} %1-way new minor
 \newcommand{\nmftext}{}
 %\setboolean{nmf2w}{true} %2-way new minor
 \newcommand{\twowaytext}{}
@@ -262,10 +262,10 @@
 \newcommand{\jumpovercalltext}{} %Other info about jump overcalls
 
 % Opening preempts
-%\setboolean{prsou}{true} %sound -- rule of 2/3/4
-\setboolean{prlig}{true} %light 
+\setboolean{prsou}{true} %sound -- rule of 2/3/4
+%\setboolean{prlig}{true} %light 
 %\newvoolean{prver}{true} %very light
-\newcommand{\preempttext}{3NT is `gambling' running minor suit} %other info about preempts
+\newcommand{\preempttext}{4\c, 4\d\ Namyats} %other info about preempts
 
 %Direct cuebid
 %\setboolean{qnami}{true} %natural...
@@ -280,46 +280,46 @@
 \newcommand{\cuebidtext}{} %other cuebid comments
 
 %Competitive bidding column - NT overcalls
-\newcommand{\directlowtext}{13} %range
-\newcommand{\directhightext}{15}
+\newcommand{\directlowtext}{14} %range
+\newcommand{\directhightext}{16}
 %\setboolean{syson}{true} %systems on
 %\setboolean{dntco}{true}
 \newcommand{\directconvtext}{} %info line re direct overcalls
-\newcommand{\ballowtext}{13} %balancing range
-\newcommand{\balhightext}{15}
+\newcommand{\ballowtext}{14} %balancing range
+\newcommand{\balhightext}{16}
 %\setboolean{unumi}{true}
 \setboolean{unu2l}{true} %Unusual: minors
 %\setboolean{bntco}{true} %Unusual: 2 lowers
 \newcommand{\ntconvtext}{} %conventional overcalls (Sandwich etc)
 
 %Defense vs. NT:
-\newcommand{\firstcondition}{} %''vs.'' line, first half
-\newcommand{\firstvstwocl}{} %1NT-2C
-\newcommand{\firstvstwodi}{} %1NT-2D
-\newcommand{\firstvstwohe}{} %1NT-2H
-\newcommand{\firstvstwosp}{} %1NT-2S
-\newcommand{\firstvsdbl}{} %1NT-X
-\newcommand{\secondcondition}{} %the same six lines, right half
-\newcommand{\secondvstwocl}{}
-\newcommand{\secondvstwodi}{}
-\newcommand{\secondvstwohe}{}
-\newcommand{\secondvstwosp}{}
-\newcommand{\secondvsdbl}{}
-\newcommand{\othernttop}{} %two lines of other NT defense info
+\newcommand{\firstcondition}{Weak} %''vs.'' line, first half
+\newcommand{\firstvstwocl}{Long suit} %1NT-2C
+\newcommand{\firstvstwodi}{Both majors} %1NT-2D
+\newcommand{\firstvstwohe}{Hearts + minor} %1NT-2H
+\newcommand{\firstvstwosp}{Spades + minor} %1NT-2S
+\newcommand{\firstvsdbl}{Penalty} %1NT-X
+\newcommand{\secondcondition}{Strong} %the same six lines, right half
+\newcommand{\secondvstwocl}{\c\ + Major}
+\newcommand{\secondvstwodi}{\d\ + Major}
+\newcommand{\secondvstwohe}{Natural, 6-card}
+\newcommand{\secondvstwosp}{Natural, 6-card}
+\newcommand{\secondvsdbl}{One suit / majors}
+\newcommand{\othernttop}{2NT - both minors} %two lines of other NT defense info
 \newcommand{\otherntbottom}{}
 
 %Over opp's takeout double
 %\setboolean{nsf1l}{true} %New suit forcing?
 %\setboolean{nsf2l}{true}
 %\setboolean{jsfor}{true} %Jump shifts
-%\setboolean{jsinv}{true}
-%\setboolean{jswea}{true}
+\setboolean{jsinv}{true}
+\setboolean{jswea}{true}
 %\setboolean{xximp}{true} %Rdbl implies no fit
-%\setboolean{maunl}{true} %Jordan
+\setboolean{maunl}{true} %Jordan
 %\setboolean{malim}{true}
 %\setboolean{mawea}{true}
 %\setboolean{miunl}{true}
-%\setboolean{milim}{true}
+\setboolean{milim}{true}
 %\setboolean{miwea}{true}
 \newcommand{\xxtext}{} %Blank space next to Rdbl implies no fit. Can write in ``any 10+'' 
 \newcommand{\toxothertext}{} %Line at bottom of Opps TOX section
