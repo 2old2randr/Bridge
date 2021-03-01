@@ -22,7 +22,7 @@
 
 \title{COSL Precision Bidding System}
 \author{Sudhir}
-\date{v2.41, 26 January 2021}
+\date{v2.42, 1 March 2021}
 \maketitle
 
 \tableofcontents
@@ -318,37 +318,41 @@ and responder rebids as below:
 
 \subsubsection{Suit bid after \cl{1}--1NT}
 
-A bid of \di{2}/\he{}/\sp{} or \nt{2} (for \cl{}s) over a
-response of \nt{1} shows a $5^+$-card suit and asks responder to show
-strength and fit in steps as below. This is a \emph{support-asking
-  bid} and in this context, a minimum is 8-10\hcp, a maximum is
-11-13\hcp, and support is \emph{Hxx}, \emph{xxxx} or better.
+When opener has a possible trump suit, he bids it asking responder to
+show support and point range. With a very strong hand and good suit,
+he can jump bid the suit asking responder to show his holding in the
+suit.
 
-\begin{longtable}{p{1.5cm}p{9.5cm}}
+\begin{longtable}{>{\raggedright}p{1.5cm}p{9.5cm} }
   \hline
-  \emph{1 step} & Minimum and no support. \\
-  \emph{2 steps} & Minimum with support. \\
-  \emph{3 steps} & Maximum and no support. \\
-  \emph{4 steps} & Maximum with support. \\
+  \di{2},
+  \he{2},
+  \sp{2},
+  \nt{2} & $5^+$-card suit, \emph{support-asking bid} (\nt{2} shows
+           clubs). Responder's rebids are (Minimum = 8-10\hcp, maximum
+           = 11-13\hcp, support = \emph{Hxx} / \emph{xxxx} or
+           better. \\
+         & \begin{tabular}{ll}
+             \emph{1 step} & Minimum and no support. \\
+             \emph{2 steps} & Minimum with support. \\
+             \emph{3 steps} & Maximum and no support. \\
+             \emph{4 steps} & Maximum with support. \\
+           \end{tabular} \\
+  \emph{Jump in Suit} & Very strong hand with slam interest, sets
+                        trumps and asks for responder's holding in
+                        that suit. Responses are in steps: \\ 
+         & \begin{tabular}{ll}
+             \emph{1 step} & Two or three spot cards. \\
+             \emph{2 steps} & Doubleton honour. \\
+             \emph{3 steps} & Tripleton honour. \\
+             \emph{4 steps} & Two honours doubleton. \\
+             \emph{5 steps} & Two honours tripleton. \\
+             \emph{6 steps} & Four card support. \\
+           \end{tabular} \\
   \hline
 \end{longtable}
 
-A jump rebid in a suit, e.g., \cl{1}--\nt{1}--\cl{3} shows a very
-strong hand with slam interest, sets trumps and asks for responder's
-holding in that suit.  Responses are in steps as below:
-
-\begin{longtable}{ p{1.5cm}p{9.5cm}}
-  \hline
-  \emph{1 step} & Two or three spot cards. \\
-  \emph{2 steps} & Doubleton honour. \\
-  \emph{3 steps} & Tripleton honour. \\
-  \emph{4 steps} & Two honours doubleton. \\
-  \emph{5 steps} & Two honours tripleton. \\
-  \emph{6 steps} & Four card support. \\
-  \hline
-\end{longtable}
-
-Any suit bid after a support-asking bid would be an $\epsilon$ control-asking
+\underline{Any suit bid} after a support-asking bid is an $\epsilon$ control-asking
 bid in that suit.\hyperlink{epsilon}{$\Rightarrow$}
 
 \subsubsection{No-Trump raise after \cl{1}--1NT}
@@ -840,6 +844,7 @@ Responses to a major opening include \emph{Bergen} raises,
                   \he{2} (after \sp{1}) & Natural, $4^+$-card suit. \\
                   \sp{2} (after \he{1}) & 14-15\hcp, reverse. \\
                   \emph{Rebid suit} & Minimum, not necessarily a 6-carder. \\
+                  \emph{New Suit} & Natural, second suit. \\
                   \nt{2} & 11-13\hcp, stoppers in unbid suits \\
                   \emph{Raise} & 11-13\hcp, good support, non-forcing. \\
                   \emph{Jump in new suit} & 14-15\hcp, good support,
@@ -1190,16 +1195,19 @@ minimum suit quality of 8 when vulnerable or 7 when non-vulnerable.
 
 \section{Responses to 2NT}
 
-Opener is showing a balanced hand with 22-23\hcp. Note that the rebids after a \cl{3}
-response differ from those after \cl{1}--\di{1}--\nt{2}
-because here, responder is not limited to 0-7\hcp\ and slam is a possibility. Responses are:
+\hypertarget{2nt}
+Opener is showing a balanced hand with 22-23\hcp. Note that the rebids
+after a \cl{3} response differ from those after \cl{1}--\di{1}--\nt{2}
+because here, responder is not limited to 0-7\hcp\ and slam is a
+possibility. Responses are:
 
 \begin{longtable}{ p{1.5cm}p{9.5cm} }
   \hline
   \emph{Pass} & Very weak, no suit to escape to. \\
   \nt{3} & To play. \\
-  \cl{3} & \emph{Smolen Stayman}---asking for majors (implies at least one four-card major). Game-going with
-           slam interest. Responses are: \\
+  \cl{3} & \emph{Smolen Stayman}---asking for majors (implies at least
+           one four-card major). Game-going with slam
+           interest. Responses are: \\
               & \begin{tabular}{lp{7.7cm}}
                   \di{3} & No 4-card major---responder can now rebid: \\
                           & \begin{tabular}{lp{6.2cm}}
@@ -1220,12 +1228,15 @@ because here, responder is not limited to 0-7\hcp\ and slam is a possibility. Re
                 \end{tabular} \\
   \di{3}/\he{} & Transfer to \he{}/\sp{} respectively.
                           
-                        With 5-5 in the majors, responder bids \sp{3} after a transfer to hearts.
-                        With 5-4 (four hearts), he bids \he{4} after
-                        a transfer to spades. Bidding \nt{3} asks opener to pass or bid four of
-                        the major holding 3-card support. \\
-  \sp{3} & Minor suit slam try. Opener bids \cl{4} (corrected to \di{4} if needed). \\
-  \cl{4} & Minor two-suiter. \di{4} sets diamonds, any other bid agrees clubs. \\
+                 With 5-5 in the majors, responder bids \sp{3} after a
+                 transfer to hearts. With 5-4 (four hearts), he bids
+                 \he{4} after a transfer to spades. Bidding \nt{3}
+                 asks opener to pass or bid four of the major holding
+                 3-card support. \\
+  \sp{3} & Minor suit slam try. Opener bids \cl{4} (corrected to
+           \di{4} if needed). \\
+  \cl{4} & Minor two-suiter. \di{4} sets diamonds, any other bid
+           agrees clubs. \\
   \di{4}/\he{} & Transfer to \he{4}/\sp{} respectively. $6^+$-card
                  suit, to play. \\
   \hline
