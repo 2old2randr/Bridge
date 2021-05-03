@@ -18,12 +18,13 @@
 \newcommand{\ltc}{\textsc{ltc}}
 \newcommand{\orf}[1]{\textcolor{blue}{#1$\dagger$}} % One round force
 \newcommand{\gf}[1]{\textcolor{red}{#1$\ddagger$}} % Game force
+\newcommand{\excp}[1]{\textcolor{magenta}{#1}} % Exception
 
 \begin{document}
 
 \title{COSL Precision Bidding System}
 \author{Sudhir Shenoy}
-\date{v2.5, 2 May 2021}
+\date{v2.6, 5 May 2021}
 \maketitle
 
 \tableofcontents
@@ -34,7 +35,7 @@
 \textcolor{red}{red} text and marked with a double dagger ($\ddagger$)
 symbol. Bids that are forcing for at least one round are in
 \textcolor{blue}{blue} text and marked with a dagger ($\dagger$)
-symbol.
+symbol. Exceptions or unintuitive bids are \excp{highlighted}.
 
 \pagebreak
 
@@ -69,16 +70,18 @@ respond with less than 8\hcp.
                  with a void or singleton should also be opened with
                  \cl{1}, e.g., \hhand{AQJT98,8,KQ7,QJT}.
                  \hyperlink{1c}{$\Rightarrow$} \\
-  \di{1} & 11-15\hcp, at least 2 cards in \di{}, no 5-card major and
-           less than 6 clubs. \hyperlink{1d}{$\Rightarrow$} \\
+  \di{1} & 11-15\hcp, $3^+$-cards in \di{} (\excp{could be 2}), no
+           5-card major and less than 6 clubs.
+           \hyperlink{1d}{$\Rightarrow$} \\
   \he{1},
   \sp{1} & 11-15\hcp, $5^+$-cards in suit bid.
            \hyperlink{1major}{$\Rightarrow$} \\
-  \nt{1} & 14-16\hcp\ in $1^{st}$/$2^{nd}$ positions and 15-17\hcp\ in
-           $3^{rd}$/$4^{th}$ position, balanced. May have a five-card
-           minor (even a 5-4-2-2 distribution with a five-card minor
-           is acceptable with stoppers in the
-           doubletons). \hyperlink{1nt}{$\Rightarrow$} \\
+  \nt{1} & 14-16\hcp\ in $1^{st}$/$2^{nd}$ positions and
+           \excp{15-17\hcp\ in $3^{rd}$/$4^{th}$ position},
+           balanced. May have a five-card minor (even a 5-4-2-2
+           distribution with a five-card minor is acceptable with
+           stoppers in the doubletons).
+           \hyperlink{1nt}{$\Rightarrow$} \\ 
   \cl{2} & 11-15\hcp, $6^+$-card club suit (7\sq\ hand), may have a 4
            or 5-card major. \hyperlink{2c}{$\Rightarrow$} \\
   \orf{\di{2}} & 11-15\hcp, 5-4-3-1, 4-4-4-1 or 5-4-4-0 shape with
@@ -113,6 +116,9 @@ As in \emph{Standard American}, a \nt{1} response over an opening of
 one of a major is forcing for one round. Like the \emph{2/1 Game
   Force} system a two-over-one response is mostly forcing to game.
 
+In most cases, the bidding in \emph{Precision} does not change with
+vulnerability or seat position.
+
 \pagebreak
 
 \section{Responses to \cl{1}}
@@ -124,14 +130,15 @@ a \cl{1} hand, you want to be in a game contract opposite any random
 
 \begin{longtable}{>{\raggedright}p{2cm}p{9cm}}
   \multicolumn{2}{l}{\emph{\underline{Negative response}}} \\
-  \orf{\di{1}} & 0-7\hcp. Note that with an ace and a king (3
+  \orf{\di{1}} & 0-7\hcp. \excp{Note that with an ace and a king (3
                  controls) either in the same suit or two different
                  $4^+$-card suits, a positive response should be
-                 made. \hyperlink{1c1d}{$\Rightarrow$} \\
+                 made}. \hyperlink{1c1d}{$\Rightarrow$} \\
   \multicolumn{2}{l}{\emph{\underline{Constructive responses}}} \\
   \he{2},
   \sp{} & 4-7\hcp, $6^+$-card suit with two of the top four honours
-          but not both \emph{A} and \emph{K}.
+          but \excp{not both \emph{A} and \emph{K} when a positive
+          suit response should be made}.
           \hyperlink{1c2major}{$\Rightarrow$} \\
   \multicolumn{2}{l}{\emph{\underline{Positive responses---forcing to game}}} \\
   \gf{\he{1}},
@@ -178,8 +185,8 @@ point-count given greater playing strength.
 \begin{longtable}{ p{1.5cm}p{9.5cm}}
   \hline
   \multicolumn{2}{l}{\emph{\underline{Balanced hands}}} \\
-  \nt{1} & 17-19\hcp, balanced, no 5-card major. Responder's rebids
-           are: \\
+  \nt{1} & 17-19\hcp, balanced, no 5-card major (\excp{18-19\hcp\ in
+           $3^{rd}$/$4^{th}$ position}). Responder's rebids are: \\
          & \begin{tabular}{lp{7cm}}
              \emph{Pass} & 0-5\hcp, no major suit to escape to. \\
              \orf{\cl{2}} & 6-7\hcp, \emph{Stayman}.
@@ -292,7 +299,7 @@ point-count given greater playing strength.
 \subsection{Bidding after a constructive response}
 
 \hypertarget{1c2major} Since responder is showing a strictly limited
-hand of 4-7\hcp\ with a long suit, the opener needs to decide the best
+hand of 4-7\hcp\ with a long suit, the opener needs to decide on the best
 contract. If there is no chance for game or slam, he should pass with
 a tolerance for responder's suit.
 
@@ -318,7 +325,7 @@ a tolerance for responder's suit.
                   \emph{New suit} & Singleton or void in bid suit. \\
                 \end{tabular} \\
   \nt{3} & \emph{AQ} or \emph{KQ} in suit. \\
-  \orf{\cl{4}} & \emph{Roman key-card} ask with modified responses
+  \orf{\cl{4}} & \emph{Roman key-card} ask \excp{with modified responses}
                  since responder cannot have more than 2 key cards.
                  \hyperlink{blackwoodmod}{$\Rightarrow$} \\
   \hline
@@ -406,9 +413,12 @@ holding in that suit.
              \emph{3 steps} & Maximum and no support. \\
              \emph{4 steps} & Maximum with support. \\
            \end{tabular} \\
-  \emph{Jump in Suit} & Very strong hand with slam interest, sets
-                        trumps and asks for responder's holding in
-                        that suit. Responses are in steps: \\
+  \cl{3},
+  \di{3},
+  \he{3},
+  \sp{3} & Very strong hand with slam interest, sets
+                trumps and asks for responder's holding in
+                the suit bid. Responses are in steps: \\
          & \begin{tabular}{ll}
              \emph{1 step} & Two or three spot cards. \\
              \emph{2 steps} & Doubleton honour. \\
@@ -487,12 +497,12 @@ trumps only with a $6^+$-card suit.
   \hline
   \emph{New suit} & $5^+$-card suit, denies 3-card support for
                     responder's suit. Subsequent bids are natural to
-                    find the correct game contract. Responses are: \\
+                    find the correct game contract. Responder's rebids are: \\
         & \begin{tabular}{lp{5.5cm}}
             \emph{New suit} & $4^+$-card suit. \\
             \emph{Raise} & $3^+$-card support. \\
             \emph{Rebid suit} & $6^+$-card suit, semi-solid if minor. \\
-            \emph{Min. \nt{}} & 5-3-3-2 shape, values in unbid suits. \\
+            \emph{No-trumps} & 5-3-3-2 shape, values in unbid suits. \\
           \end{tabular} \\
   \nt{1} & 17-19\hcp, balanced (\nt{2} over \cl{2} or \di{2}). No
            5-card major, may have 3-card support (shows shape first).
@@ -545,8 +555,8 @@ Opener's rebids are:
   \hline
   \nt{3} & To play. Responder should pass unless he has many outside
            controls. \\
-  \cl{4} & $\beta$-ask for \emph{outside} controls---responses are in
-           the lower (0-3) scale. \hyperlink{beta}{$\Rightarrow$}
+  \cl{4} & $\beta$-ask for \excp{\emph{outside} controls---responses are in
+           the lower (0-3) scale}. \hyperlink{beta}{$\Rightarrow$}
 
            Any following non-trump suit bid is an
            $\epsilon$ control ask. \hyperlink{epsilon}{$\Rightarrow$} \\
@@ -568,8 +578,8 @@ Opener's rebids are:
 \hypertarget{unusualpositive} An \emph{unusual positive} response
 shows a 4-4-4-1 distribution. With less than 4 controls (typically,
 8-13\hcp), the singleton is not shown directly---\cl{3} is bid with a
-black singleton and \di{3} is bid with a red singleton. With more than
-4 controls (typically $12^+$\hcp), the singleton is immediately known
+black singleton and \di{3} is bid with a red singleton. With four or more
+controls (typically $12^+$\hcp), the singleton is immediately known
 since responder bids the the suit below the singleton.
 
 After \cl{3} or \di{3}, opener bids the next higher suit to ask
@@ -580,7 +590,7 @@ above to show the higher ranking suit.
 \gf{\emph{All bidding sequences are forcing to game}}.
 
 \begin{longtable}{p{3cm}p{2cm}|p{3cm}p{2cm}}
-  \multicolumn{4}{l}{\emph{Possible sequences after an unusual positive}}\\
+  \multicolumn{4}{l}{\emph{Possible sequences after an unusual positive of \cl{3}/\di{3}}}\\
   \hline
   \cl{1}--\cl{3}--\di{3}--\he{3} & 4-4-4-1 (\cl{}) & \cl{1}--\di{3}--\he{3}--\sp{3} & 4-4-1-4 (\di{}) \\
   \cl{1}--\cl{3}--\di{3}--\sp{3} & 1-4-4-4 (\sp{}) & \cl{1}--\di{3}--\he{3}--\nt{3} & 4-1-4-4 (\he{}) \\
@@ -588,16 +598,17 @@ above to show the higher ranking suit.
 \end{longtable}
 
 Once the singleton is known, opener can bid the singleton suit to
-initiate $\beta$ and ask for the number of controls held (the lower
+initiate $\beta$ and ask for the number of controls held (\excp{the lower
 scale is used after \cl{3} or \di{3} and the upper scale is used after
-the stronger responses). \hyperlink{beta}{$\Rightarrow$}
+the stronger responses}). \hyperlink{beta}{$\Rightarrow$}
 
 \hyperlink{ex1c3c}{Examples of bidding after an unusual positive.$\Rightarrow$}
 
 \subsection{Handling intervention over \cl{1}}
 
 Over a double of \cl{1}, the additional bids of \emph{Redouble} and
-\emph{Pass} are used to provide more information. When the double is
+\emph{Pass} are used to provide more granular information in case of a negative
+response. When the double is
 conventional (e.g., shows both majors), the bidding is the same except
 that a bid of \nt{1} would also confirm stoppers in both majors. All
 other bids retain their normal meaning.
@@ -638,7 +649,7 @@ suit.
   \gf{\nt{1}},
   \gf{\nt{2}} & Usual meaning and promises a stopper in opponent's
                 suit. \\
-  \multicolumn{2}{l}{\emph{\underline{After a no-trump overcall \cl{1}--(\nt{1}) showing minors}}} \\
+  \multicolumn{2}{l}{\emph{\underline{After an artificial no-trump overcall \cl{1}--(\nt{1}) (showing minors)}}} \\
   \emph{Double} & Modest high-card points, suitable for penalising one
                   of opponent's suits, usually no 5-card major. \\
   \gf{\cl{2}},
@@ -648,7 +659,7 @@ suit.
                 correspond to forcing bids in the unbid suits. \\
   \he{2},
   \sp{2} & Natural, non-forcing. \\
-  \multicolumn{2}{l}{\emph{\underline{After a genuine strong no-trump overcall of \cl{1}--(\nt{1})}}} \\
+  \multicolumn{2}{l}{\emph{\underline{After a strong no-trump overcall \cl{1}--(\nt{1})}}} \\
   \emph{Pass} & 0-4\hcp. \\
   \emph{Double} & $5^+$\hcp, balanced---for penalties. \\
   \emph{Suit} & 5-8\hcp, $5^+$-card suit. \\
@@ -656,8 +667,7 @@ suit.
 \end{longtable}
 
 Over higher level overcalls, bidding is largely natural but responses
-over an \emph{unusual \nt{2}} are still \emph{unusual over unusual}
-and not specifically mentioned in the table below.
+over an \emph{unusual \nt{2}} are still \emph{unusual over unusual}.
 
 \begin{longtable}{ p{1.5cm}p{9.5cm}}
   \hline
@@ -672,6 +682,10 @@ and not specifically mentioned in the table below.
   \gf{\emph{Cue-bid}} & Values to be in game but no clear-cut
                         action---no long suit, no stopper in
                         overcaller's suit. \\
+  \multicolumn{2}{l}{\emph{\underline{After an overcall of \nt{2} (unusual no-trump)}}} \\
+  \emph{Double} & Penalty oriented, usually no 5-card major. \\
+  \gf{\cl{3}},
+  \gf{\di{3}} & $8^+$\hcp, $5^+$-card heart or spade suit respectively (\emph{unusual/unusual}). \\  
   \multicolumn{2}{l}{\emph{\underline{After an overcall at 3-level}}} \\
   \emph{Double} & Balanced hand with $8^+$\hcp. \\
   \gf{\emph{Suit}} & Positive, natural, game forcing. \\
@@ -683,13 +697,19 @@ and not specifically mentioned in the table below.
   \hline
 \end{longtable}
 
-If the intervention occurs after responder bids, e.g.,
-\cl{1}--(\emph{Pass})--\di{1}--(\emph{RHO bids}), opener should rebid
+\subsubsection{Intervention after a negative response}
+
+If the intervention occurs after partner's negative response of \di{1}, e.g.,
+\cl{1}--(\emph{Pass})--\di{1}--(\emph{RHO doubles / bids}), opener should rebid
 as follows:
 
 \begin{longtable}{ p{1.5cm}p{9.5cm}}
   \hline
-  \multicolumn{2}{l}{\emph{\underline{After \cl{1}--(Pass)--\di{1}--(\he{1}/\sp{1})}}} \\
+  \multicolumn{2}{l}{\emph{\underline{After \cl{1}--(Pass)--\di{1}--(Double) (usually showing diamonds)}}} \\
+  \emph{Pass} & Balanced minimum (no 5-card suit). \\
+  \nt{1} & Upper end of range with diamond stopper. \\
+  \emph{Suit} & Same meaning as without the double. \\
+  \multicolumn{2}{l}{\emph{\underline{After a 1-level suit overcall \cl{1}--(Pass)--\di{1}--(\he{1}/\sp{1})}}} \\
   \emph{Pass} & Balanced minimum (no 5-card suit). \\
   \orf{\emph{Double}} & For takeout with support for other suits. \\
   \emph{Suit} & Natural, at least 5-cards, non-forcing. \\
@@ -698,19 +718,15 @@ as follows:
            stopper. \\
   \orf{\emph{Cue-bid}} & Strong hand, lacking stopper in overcalled
                          suit. \\
-  \multicolumn{2}{l}{\emph{\underline{After \cl{1}--(Pass)--\di{1}--(\nt{1}) showing minors}}} \\
+  \multicolumn{2}{l}{\emph{\underline{After a no-trump overcall \cl{1}--(Pass)--\di{1}--(\nt{1}) (showing minors)}}} \\
   \emph{Pass} & Balanced minimum (no 5-card suit). \\
   \emph{Double} & Penalty oriented. \\
-  \orf{\cl{2}} & Heart suit with extra values (\emph{unusual over unusual}). \\
-  \orf{\di{2}} & Spade suit with extra values (\emph{unusual over unusual}). \\
+  \orf{\cl{2}} & Heart suit with extra values (\emph{unusual/unusual}). \\
+  \orf{\di{2}} & Spade suit with extra values (\emph{unusual/unusual}). \\
   \he{2},
   \sp{2} & Natural, non-forcing. \\
   \nt{2} & Upper-end of the \nt{1} rebid range with stoppers in both
            minors. \\
-  \multicolumn{2}{l}{\emph{\underline{After \cl{1}--(Pass)--\di{1}--(Double) (usually shows diamonds)}}} \\
-  \emph{Pass} & Balanced minimum (no 5-card suit). \\
-  \nt{1} & Upper end of range with diamond stopper. \\
-  \emph{Suit} & Same meaning as without the double. \\
   \multicolumn{2}{l}{\emph{\underline{After an intervention above 1-level}}} \\
   \emph{Pass} & Balanced minimum (no 5-card suit). \\
   \emph{Others} & A little extra weight as compared to without the
@@ -727,101 +743,189 @@ as follows:
 
 \section{Responses to \di{1}}
 
-\hypertarget{1d} A \di{1} opening shows either a balanced hand of
-11-13\hcp\ or an unbalanced hand with diamonds or clubs and
-11-15\hcp. Although a \di{1} opening may be made on a doubleton
-diamond, it is non-forcing and partner can pass with a weak hand.
+\hypertarget{1d} A \di{1} opening guarantees 11-15\hcp\ and at least
+three diamonds although it could occasionally be a
+doubleton. Regardless, the bid is not forcing and partner can pass
+with a poor hand (0-7\hcp\ and no 4-card major).
 
-\begin{longtable}{>{\raggedright}p{1.5cm}p{9.5cm}}
+When opener does not have a genuine diamond suit, it is either because
+(a) he is interested in the major suits but does not have a
+five-carder, (b) he holds a club suit but cannot bid \cl{2} because it
+is less than six cards or (c) he has a balanced hand that cannot be
+opened with \nt{1}, i.e., 11-13\hcp. The opener's first rebid will
+clarify which type of hand he holds (bid or raise a major suit with
+(a), bid clubs with (b), or bid no-trumps or a minor with
+(c)). Opener's rebids will also classify his point range into a
+minimum (11-13\hcp) or maximum (14-15\hcp).
+
+The first priority for both partners is to establish a 4-4 major suit
+fit if it exists so a bid by either partner that skips a major suit
+implies that he does not hold four cards in the major. If a major suit
+fit is found, a real diamond suit holding in opener's hand may never
+be mentioned.
+
+\subsection{Responder has a 4-card major}
+
+Responder will always bid either \sp{1} ($4^+$-card spades, less than
+four cards in hearts) or \he{1} ($4^+$-card hearts, may also have
+$4^+$-card spades) if he has a four-card major so any other bid
+  denies four cards in either major suit. As a consequence,
+\emph{Precision} does \emph{not} have the concept of \emph{$4^{th}$ suit
+forcing} that is found in standard systems and a simple rebid by responder
+in a new suit (which may be a six-card suit) is always non-forcing.
+
+Opener's rebids after a response of \he{1}
+(usually\footnote{Sometimes, with favourable vulnerabilty and an
+  extremely weak hand, a tactical bid may be made to interfere with
+  opponent's game. E.g., holding \hhand{754,J852,985,654}, you could
+  bid \he{1} planning to pass any rebid by opener.} $6^+$\hcp,
+$4^+$-card suit, may also have a 4-card spade suit) are as follows:
+\begin{longtable}{>{\raggedright}p{0.75cm}p{10.25cm}}
   \hline
-  \emph{Pass} & 0-7\hcp\ and, usually, no 4-card major. \\
-  \multicolumn{2}{l}{\emph{\underline{Major suit at 1-level}}} \\
-  \orf{\he{1}},
-  \orf{\sp{1}} & Usually\footnote{Sometimes, with favourable
-                 vulnerabilty and an extremely weak hand, a tactical
-                 bid may be made to interfere with opponent's
-                 game. E.g., holding \hhand{754,J852,985,654}, you
-                 could bid \he{1} planning to pass any rebid by
-                 opener.} $6^+$\hcp, $4^+$-card suit. \sp{1} denies
-                 four cards in hearts but responder could have four
-                 spades after bidding \he{1}. Opener rebids: \\
-         & \begin{tabular}{p{1.5cm}p{7cm}}
-             \orf{\sp{1}} & 4-card \sp{}, denies 4-card
-                            \he{}. Responder rebids: \\
-                    & \begin{tabular}{lp{5.5cm}}
-                        \nt{1} & Minimum hand, sign-off. \\
-                        \nt{2} & 11-12\hcp, balanced, invitational. \\
-                        \orf{\cl{2}} & $10^+$\hcp, 4th suit forcing
-                                       (``do something clever''). \\
-                        \sp{2} & 8-9\hcp, 4-card \sp{}. \\
-                      \end{tabular} \\
-             \nt{1} & 11-14\hcp, balanced, denies 4-card fit. Can be
-                      3-3-2-5 shape. Responder can rebid:
-                      \marginnote{A \emph{reverse} by responder (\orf{\sp{2}}
-                      after initial \he{1}) is forcing and indicates a
-                      strong hand. New suits at the 3-level even
-                      without a jump are forcing.} \\
-                    & \begin{tabular}{lp{5.5cm}}
-                        \orf{\cl{2}} & New minor \\
-                        \di{2} & 8-9\hcp, 4-card \emph{spades} (after
-                                 initial \he{1}). \\
-                      \end{tabular} \\
-             \cl{2} & Unbalanced, usually 5-4 in minors and no 4-card
-                      major. Responder's rebids: \\
-                    & \begin{tabular}{lp{5cm}}
-                        \di{2} & Weak hand, to play. \\
-                        \he{2},
-                        \sp{2} & $6^+$-card suit, to play. \\
-                        \cl{3} & 8-9\hcp, keep bidding alive. \\
-                        \nt{3} & To play. \\
-                      \end{tabular} \\
-             \di{2} & $6^+$-card diamond suit, non-forcing. \\
-             \he{2},
-             \sp{2} & Raise of responder's suit shows 3-4 card support
-                      (if 3-card, it promises a singleton in a side
-                      suit).
-
-                      A \emph{reverse} (bidding the other major) shows
-                      14-15\hcp, $6^+$-\di{} and $4^+$-cards in the
-                      suit bid. \\
-             \nt{2} & 14-15\hcp, good diamonds and stoppers in the
-                      unbid major and clubs. \\
-             \he{3},
-             \sp{3} & A double raise shows a maximum 14-15\hcp, 4-card
-                      support and distributional values. \\
-             \di{3} & 14-15\hcp, $6^+$-card \di{} suit, no 4-card
-                      major. \\
-             \cl{3} & 14-15\hcp, at least 5-5 in minors with points
-                      concentrated in the two suits. \\
+  \orf{\sp{1}} & 4-card \sp{}, denies four cards in hearts. Responder
+                 rebids: \\
+         & \begin{tabular}{>{\raggedright}p{2cm}p{7.25cm}}
+             \sp{2} & Simple raise---8-9\hcp, 4-card spades. \\
+             \sp{3} & Jump raise---10-11\hcp, 4-card spades,
+                      invitational. \\
+             \nt{1} & Minimum hand, sign-off. \\
+             \nt{2} & 10-12\hcp, balanced hand, invitational. \\
+             \cl{2},
+             \di{2},
+             \he{2} & Minimum hand, $5^+$-cards, attempt to find a
+                      better part-score, \excp{non-forcing}. \\
+             \he{3} & $6^+$-card suit, 10-12\hcp, invitational. \\
+             \gf{\cl{3}} & Could be a 3-card suit. Opener should show
+                           3-card heart support with \he{3}. \\ 
+             \orf{\di{3}} & $5^+$-card suit, strong hand,
+                            game-going. \\
+             \gf{\emph{Double jump
+             shift}} & \emph{Splinter} bid with singleton or void and
+                       spade support. \\
            \end{tabular} \\
+  \nt{1} & 11-13\hcp, balanced, denies 4-card major. Can be
+           3-3-2-5 shape. Responder can rebid: \\
+         & \begin{tabular}{>{\raggedright}p{2cm}p{7.25cm}}
+             \nt{2} & 11-12\hcp, balanced hand, invitational. \\
+             \nt{3} & $13^+$\hcp, balanced hand. \\
+             \cl{2}, \di{2}, \he{2} & Minimum with $5^+$-card suit,
+                                      retreat from no-trumps. \\
+             \orf{\sp{2}} & \emph{Reverse}, at least 4-4 in the major
+                            suits, strong hand. \\
+             \orf{\di{3}} & $5^+$-card diamonds, strong hand. \\
+             \gf{\emph{Jump
+             shift}} & Could be a 3-card suit. Intermediate bid to
+                       decide between \nt{3} and \he{4} (if opener
+                       shows delayed support with \he{3}). \\
+           \end{tabular} \\
+  \cl{2} & Unbalanced, usually 5-4 in minors and no 4-card
+           major. Responder's rebids: \\
+               & \begin{tabular}{>{\raggedright}p{2cm}p{7.25cm}}
+                   \di{2} & Weak hand, to play. \\
+                   \he{2} & $6^+$-card suit, to play. \\
+                   \orf{\sp{2}} & \emph{Reverse}, 5-4 in the major
+                                  suits. \\
+                   \cl{3} & 10-12\hcp, at least 3-card support for
+                            clubs. \\
+                   \orf{\di{3}} & $5^+$-card suit, strong hand. \\
+                   \nt{3} & To play. \\
+                   \gf{\emph{Double jump
+                   shift}} & \emph{Splinter}---singleton or void in
+                             suit bid and club support. \\
+                 \end{tabular} \\
+  \di{2} & $6^+$-card diamond suit, no 4-card major, non-forcing. \\
+  \he{2} & Single raise---4-card heart suit, 11-13\hcp. Could be a
+           3-card suit with a singleton elsewhere when no other bid is
+           available. E.g., \hhand{2,AK9,J9832,AT92}. \\
+  \sp{2} & \emph{Reverse}---14-15\hcp, $6^+$-cards in diamonds and
+           $4^+$-cards in spades. \\
+  \nt{2} & 14-15\hcp, good diamonds and stoppers in the unbid major
+           and clubs. \\
+  \cl{3} & 14-15\hcp, at least 5-5 in minors with points concentrated
+           in the two suits. \\
+  \di{3} & 14-15\hcp, $6^+$-card diamond suit, no 4-card major. \\
+  \he{3} & Jump raise---4-card heart suit, 14-15\hcp. \\
+  \hline
+\end{longtable}
+
+The bidding after a response of \sp{1} ($6^+$\hcp, $4^+$-card spade
+suit, less than four hearts) is similar to that after a response of
+\he{1} but is repeated here for convenience. Opener's rebids are:
+\begin{longtable}{>{\raggedright}p{0.75cm}p{10.25cm}}
+  \hline
+  \nt{1} & 11-13\hcp, balanced, may have 4-card hearts. Responder can
+           rebid: \\
+         & \begin{tabular}{>{\raggedright}p{2cm}p{7.25cm}}
+             \nt{2} & 11-12\hcp, balanced hand, invitational. \\
+             \nt{3} & $13^+$\hcp, balanced hand. \\
+             \cl{2},
+             \di{2},
+             \sp{2} & $5^+$-card suit, minimum, retreat from
+                      no-trumps. \\
+             \gf{\emph{Jump
+             shift}} & Could be a 3-card suit. Intermediate bid to
+                       decide between \nt{3} and \sp{4} (if opener
+                       shows delayed support with \sp{3}). \\
+           \end{tabular} \\
+  \cl{2} & Unbalanced, usually 5-4 in minors and no 4-card
+           major. Responder's rebids: \\
+         & \begin{tabular}{>{\raggedright}p{2cm}p{7.25cm}}
+             \di{2} & Weak hand, to play. \\
+             \sp{2} & $6^+$-card suit, to play. \\
+             \cl{3} & 10-12\hcp, at least 3-card support for clubs. \\
+             \orf{\di{3}} & $5^+$-card suit, strong hand. \\
+             \nt{3} & To play. \\
+             \gf{\emph{Double jump
+             shift}} & \emph{Splinter}---singleton or void in suit bid
+                       and club support. \\
+           \end{tabular} \\
+  \di{2} & $6^+$-card diamond suit, no 4-card major, non-forcing. \\
+  \sp{2} & Single raise---4-card spade suit, 11-13\hcp. Could be a
+           3-card suit with a singleton elsewhere. \\
+  \nt{2} & 14-15\hcp, good diamonds and stoppers in the unbid major
+           and clubs. \\
+  \cl{3} & 14-15\hcp, at least 5-5 in minors with points concentrated
+           in the two suits. \\
+  \di{3} & 14-15\hcp, $6^+$-card diamond suit, no 4-card major. \\
+  \sp{3} & Jump raise---4-card spade suit, 14-15\hcp. \\
+  \hline
+\end{longtable}
+
+\subsection{Responder does not have a 4-card major}
+
+When responder does not have a four card major, he has the following
+bids:
+\begin{longtable}{>{\raggedright}p{1.5cm}p{9.5cm}}
   \multicolumn{2}{l}{\emph{\underline{Balanced hands}}} \\
-  \nt{1} & 8-10\hcp, no 4-card major, usually balanced hand. \\
-  \nt{2} & 11-12\hcp, balanced, no 4-card major. Could be a 4-3-3-3
-           shape with a weak four card major and tenaces that would
-           play better as declarer in \nt{}. E.g.,
-           \hhand{AQT,T642,QT9,KT7} or \hhand{9843,KJT,AQ7,JT5} \\
-  \nt{3} & 13-15\hcp, balanced, no 4-card major. \\
-  \multicolumn{2}{l}{\emph{\underline{Inverted raises with diamond support}}} \\
+  \nt{1} & 8-10\hcp, usually balanced hand. \\
+  \nt{2} & 11-12\hcp, balanced. Could be a 4-3-3-3 shape with a weak
+           four card major and tenaces that would play better as
+           declarer in \nt{}. E.g., \hhand{AQT,T642,QT9,KT7} or
+           \hhand{9843,KJT,AQ7,JT5} \\
+  \nt{3} & 13-15\hcp, balanced. \\
+  \multicolumn{2}{l}{\emph{\underline{Support for diamonds (inverted raises)}}} \\
   \orf{\di{2}} & $11^+$\hcp, $5^+$-card diamond suit,
                  \underline{forcing to \nt{2} or \di{3}}. \\
-  \di{3} & 0-10\hcp, $5^+$-cards in \di{}, usually with a singleton
-           or void. \\
+  \di{3} & 0-10\hcp, $5^+$-cards in \di{}, usually with a singleton or
+           void. \\
   \di{4} & Preemptive, with more shape and trumps than for \di{3},
            i.e., 6 or 7-card diamond suit. \\
   \multicolumn{2}{l}{\emph{\underline{Unbalanced hands}}} \\
-  \orf{\cl{2}} & $10^+$\hcp, usually $5^+$-card suit and no 4-card major.
-                 Opener's rebids are: \\
+  \orf{\cl{2}} & $10^+$\hcp, usually $5^+$-card suit but could be four
+                 cards. Opener's rebids are: \\
          & \begin{tabular}{lp{7cm}}
-             \he{2} & 11-14\hcp, \he{} stopper, no \sp{} stopper. \\
-             \sp{2} & 11-14\hcp, \sp{} stopper, no \he{} stopper. \\
-             \nt{2} & 11-14\hcp, stopper in both majors. \\
+             \he{2} & 11-$14^-$\hcp, \he{} stopper, no \sp{}
+                      stopper. \\
+             \sp{2} & 11-$14^-$\hcp, \sp{} stopper, no \he{}
+                      stopper. \\
+             \nt{2} & 11-$14^-$\hcp, stopper in both majors. \\
              \di{2},
              \di{3} & No stopper in majors, genuine \di{} suit. \\
-             \gf{\he{3}} & 15\hcp\ with a heart stopper and no spade
-                           stopper. \\
-             \gf{\sp{3}} & 15\hcp\ with a spade stopper and no heart
-                           stopper. \\
-             \nt{3} & 15\hcp\ with stoppers in both majors. \\
+             \gf{\he{3}} & $14^+$-15\hcp\ with a heart stopper and no
+                           spade stopper. \\
+             \gf{\sp{3}} & $14^+$-15\hcp\ with a spade stopper and no
+                           heart stopper. \\
+             \nt{3} & $14^+$-15\hcp\ with stoppers in both majors. \\
              \cl{3} & No stopper in majors. \\
            \end{tabular} \\
   \he{2},
@@ -836,8 +940,8 @@ diamond, it is non-forcing and partner can pass with a weak hand.
            \hhand{Q4,75,97,AQJ8654} \\
   \orf{\he{3}},
   \orf{\sp{3}},
-  \orf{\cl{4}} & \emph{Splinter} bid with $5^+$-card diamond support
-                 and no 4-card major. \\
+  \orf{\cl{4}} & \emph{Splinter} bid with $5^+$-card diamond
+                 support. \\
   \he{4},
   \sp{4} & Single-suited hand with $7^+$-cards and no slam
            interest. \\
@@ -957,8 +1061,8 @@ game force.
                 (over \sp{1}). Unless the suit is rebid at the three
                 level, all 2-over-1 responses are to
                 game. \marginnote{A 2-over-1 response by a
-                \emph{passed hand} indicates 8-10\hcp\ with a good
-                $5^+$-card suit and is non-forcing.} Opener's rebids
+                \emph{passed hand} indicates \excp{8-10\hcp\ with a good
+                $5^+$-card suit and is non-forcing}.} Opener's rebids
                 are: \\
               & \begin{tabular}{>{\raggedright}p{2.5cm}p{6cm}}
                   \he{2} (after \sp{1}) & Natural, $4^+$-card suit. \\
@@ -1071,7 +1175,7 @@ After an opponent's overcall, responder's bids are:
 \section{Responses to 1NT}
 
 \hypertarget{1nt} A \nt{1} opening shows a 14-16\hcp\ balanced hand
-(15-17\hcp\ in $3^{rd}$ or $4^{th}$ seat) without a 5-card major suit
+(\excp{15-17\hcp\ in $3^{rd}$ or $4^{th}$ seat}) without a 5-card major suit
 (a 5-card minor is possible). Simple arithmetic will almost always
 tell responder how high to place the contract. E.g., 0-8\hcp: 1NT or 2
 of suit, 9-10\hcp: game invite, 11-17: game force, 18+: slam. The
@@ -1132,7 +1236,7 @@ limited to less than $11$\hcp.
                   \cl{3},
                   \di{3} & 4-card suit. Responder will pass with a
                            weak hand or bid on with slam interest. \\
-                  \nt{2} & No four card minor. Responder rebids \cl{3}
+                  \orf{\nt{2}} & No four card minor. Responder rebids \cl{3}
                            with a weak hand asking opener to pass or
                            correct to \di{3}. With a strong hand,
                            responder bids \gf{\he{3}} or \gf{\sp{3}}
@@ -1151,9 +1255,9 @@ limited to less than $11$\hcp.
 \subsection{Intervention after opening 1NT}
 
 If an opponent doubles \nt{1} for penalties, we use the \emph{Meckwell
-  Escapes} to run out. This does not work very well if responder has a
-4-3-3-3 distribution. In this case, responder can either treat his
-four-card suit as a five-card suit, or he can treat his four-card suit
+  Escapes} to run to a safer contract. This does not work very well if responder has a
+4-3-3-3 distribution and in this case, responder can either treat his
+four-card suit as a five-card suit, or treat his four-card suit
 and his best 3-card suit as a two-suiter and pray that the opponents
 elect to introduce a suit of their own.
 \begin{longtable}{ p{1.5cm}p{9.5cm}}
@@ -1203,7 +1307,7 @@ After an opponent's overcall, responder has the following choices:
 \hypertarget{2c} Bidding after a \cl{2} opening (11-15\hcp, $6^+$-card
 club suit) is largely natural except for the conventional \di{2}
 response that asks opener to further describe his hand. Note that a
-direct \di{4} (not \nt{4}) is used to trigger key card asking.
+direct \excp{\di{4} (not \nt{4}) is used to trigger key card asking}.
 
 \begin{longtable}{ p{1.5cm}p{9.5cm}}
   \hline
@@ -1284,7 +1388,7 @@ Over an opponent's overcall, raises are natural. Others:
                         \hyperlink{negative}{$\Rightarrow$} \\
   \gf{\emph{Cue-bid}} & 12+\hcp, singleton or void in opponent's
                         suit. \\
-  \orf{\emph{New suit}} & Any new suit bid is forcing. \\
+  \orf{\emph{New suit}} & Any new suit bid is natural and forcing. \\
   \hline
 \end{longtable}
 
@@ -1351,7 +1455,7 @@ Responses after an opponent's overcall:
   \hline
   \emph{Double} & For penalties. \\
   \gf{\nt{2}} & Same as without overcall. \\
-  \emph{Others} & Natural. \\
+  \emph{Others} & Natural, non-forcing. \\
   \hline
 \end{longtable}
 
@@ -1468,15 +1572,13 @@ limited to 0-7\hcp\ and slam is a possibility. Responses are:
 
 \section{Responses to 3-level Preempts}
 
-\hypertarget{3preempt} A preempt at the 3-level should be made with at
-least a 7-card suit and less than 10\hcp\ with a suit quality of 8
-(non-vulnerable) or 9 (vulnerable). As per the rule of 2/3/4, opener
-expects to make five tricks at favourable vulerability, six tricks at
-equal vulnerability and seven tricks with unfavourable
-vulnerability. In general, it is expected that opener will not have a
-four-card major and have two or more good honours in his suit with not
-more than one useful honour in a side suit. Unless partner makes a
-forcing response, the opener is not expected to bid again.
+\hypertarget{3preempt} A preempt at the 3-level is made with less than
+10\hcp\ and at least a 7-card suit with a suit quality of 8 \excp{(or
+  9 when vulnerable)} and obeying the rule of 2/3/4.  In general, it
+is expected that opener will not have a four-card major and have two
+or more good honours in his suit with not more than one useful honour
+in a side suit. Unless partner makes a forcing response, the opener is
+not expected to bid again.
 
 Responses are based on playing strength (additional tricks that
 responder can provide) rather than high card points:
@@ -1489,9 +1591,10 @@ responder can provide) rather than high card points:
                  more. \\
   \orf{\emph{New suit}} & $6^+$-card suit, good playing strength since
                           this forces opener to respond. Opener should
-                          raise with two or three trumps. \\
+                          raise the suit with two or three trumps. \\
   \nt{3} & Natural, good controls in side suits, good chance of taking
-           6-7 tricks in opener's suit. \\
+           6-7 tricks in opener's suit even with the known problems of
+           entries in dummy. \\
   \hline
 \end{longtable}
 
@@ -1582,11 +1685,11 @@ Responses are:
                                     singleton. \\
                    \emph{3 steps} & First round control---void or
                                     ace. \\
-                   \multicolumn{2}{p{9cm}}{A repeat ask in the same suit asks for
-                            third round control, i.e., a doubleton or
-                            guarded queen. Responses are---$1^{st}$
-                            step: no control, $2^{nd}$ step: doubleton
-                            and $3^{rd}$ step: guarded queen.} \\
+                   \multicolumn{2}{p{9cm}}{A repeat ask in the same
+                   suit asks for third round control, i.e., a
+                   doubleton or guarded queen. Responses
+                   are---$1^{st}$ step: no control, $2^{nd}$ step:
+                   doubleton and $3^{rd}$ step: guarded queen.} \\
                  \end{tabular} \\
   \hline
 \end{longtable}
@@ -1677,12 +1780,12 @@ following meanings:
 
 \subsection{Doubles}
 
-A direct double over opponent's opening of one of a suit is either
-12-15\hcp\ with tolerance for any unbid suit or a power double with
-$16^+$\hcp. A double of an opponent's minor opening bid usually shows
-4-4 in the majors and over a major suit opening, it normally promises a
-4-card suit in the other major. A response must be made even with a
-blank hand unless the other opponent bids.
+A double of opponent's opening of one of a suit is either 12-15\hcp\
+with tolerance for any unbid suit or a power double with $16^+$\hcp. A
+double of an opponent's minor opening bid usually shows 4-4 in the
+majors and over a major suit opening, it normally promises a 4-card
+suit in the other major. A response must be made even with a blank
+hand unless the other opponent bids.
 
 Responder's bids:
 \begin{longtable}{>{\raggedright}p{2.5cm}p{8.5cm}}
@@ -1721,14 +1824,15 @@ opener's suit to the two level in an auction such as
 
 \subsubsection{Negative doubles}
 
-A negative double at the one-level implies possession of four cards in
-the other major and sufficient values to justify a response. Responder
-is also expected to have mild support either for the unbid minor or
-for partner's suit. At the two or three-level, it implies that the
-hand is playable in either of the unbid suits and possibly even
-partner's suit at the level he will be forced to bid. Sometimes,
-responder may make a negative double with a single-suited hand when he
-has insufficient high-card strength to make a forcing bid in his suit.
+A negative double after an opponent's overcall of one of a major
+implies possession of four cards in the other major and sufficient
+values to justify a response. Responder is also expected to have mild
+support either for the unbid minor or for partner's suit. At the two
+or three-level, it implies that the hand is playable in either of the
+unbid suits and possibly even partner's suit at the level he will be
+forced to bid. Sometimes, responder may make a negative double with a
+single-suited hand when he has insufficient high-card strength to make
+a forcing bid in his suit.
 
 Examples:
 \begin{longtable}{l|p{5cm}>{\raggedright\arraybackslash}p{3cm}}
@@ -1756,7 +1860,7 @@ Examples:
 Note that in the sequence, \di{1}--(\he{1}), responder should bid
 \sp{1} holding four spades rather than double.
 
-\hypertarget{negative} Openers rebids after partner's takeout double
+\hypertarget{negative} Openers rebids after partner's negative double
 are as follows:
 \begin{longtable}{p{2.5cm}p{8.5cm}}
   \hline
@@ -1779,8 +1883,8 @@ are as follows:
 \end{longtable}
 
 Opener can also \emph{pass} for penalties after a negative double
-although this is rare (it implies opponents have bid opener's good
-suit). For example, after \di{1}--(\cl{2})--\emph{Double}, opener
+although this is rare since it implies opponents have bid opener's
+good suit. For example, after \di{1}--(\cl{2})--\emph{Double}, opener
 could pass with \hhand{5,A76,AKJ3,QT942} or \hhand{983,Q,AK865,KQJ9}
 (but not with \hhand{QT65,9,AKT,KT32} where the correct bid would be
 to support one of partner's implied suits with \sp{2}).
@@ -1837,7 +1941,7 @@ having passed once (since a penalty double is no longer meaningful).
   \hline
 \end{longtable}
 
-\nt{2} after \cl{2}, \di{2} (or \emph{Double}--\cl{2})--\he{2}) shows
+\nt{2} after \cl{2}, \di{2} (or after \emph{Double}--(\emph{Pass})--\cl{2}--(\emph{Pass})--\he{2}) shows
 game interest and partner rebids as follows:
 \begin{longtable}{>{\raggedright}p{1.5cm}p{9.5cm}}
   \hline
@@ -2308,11 +2412,11 @@ two key cards.  The responses are slightly different depending on
 whether the suit is hearts or spades.
 
 When spades are trumps, the $1^{st}$ step (\di{4}) shows 0 or 2 key
-cards, the $2^{nd}$ step (\he{4}) shows one key card without the queen
-of trumps and the $3^{rd}$ step (\sp{4}) shows one key card with queen
-of trumps. If partner signs off in \sp{4} after a 0/2 response, opener
-bids \nt{4} with the trump queen allowing responder to push on to slam
-if possible.
+cards, the $2^{nd}$ step (\he{4}) shows one key card without the
+\sp{}\emph{Q} and the $3^{rd}$ step (\sp{4}) shows one key card with
+the \sp{}\emph{Q}.  If partner signs off in \sp{4} after a 0/2
+response, opener bids \nt{4} holidng the \sp{}\emph{Q} allowing
+responder to push on to slam if possible.
 
 When hearts is the agreed suit, the $1^{st}$ step (\di{4}) shows 0 or
 2 key cards and the $2^{nd}$ step (\he{4}) shows 1 key card. If
@@ -2415,6 +2519,15 @@ bid (e.g., \sq\ of 8 for a 2-level overcall).
 
 When preempting, the \sq\ should equal the level of preempt when
 vulnerable and can be one less when non-vulnerable.
+
+\gap
+
+\emph{Rule of 2/3/4} When preempting, the expected number of undertricks should
+be no more than two with unfavourable vulnerability, three with equal vulnerability
+and four with favourable vulnerability.
+
+For example, a \di{3} preemptive bid is made when expecting to take at least seven
+tricks in the case that the opening bidder is vulnerable facing non-vulnerable opponents.
 
 \gap
 
