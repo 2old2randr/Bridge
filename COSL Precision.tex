@@ -28,7 +28,7 @@
 
 \title{COSL Precision Bidding System}
 \author{Sudhir Shenoy}
-\date{v2.61, 7 May 2021}
+\date{v2.61, 9 May 2021}
 \maketitle
 
 \tableofcontents
@@ -1816,7 +1816,7 @@ Responder's bids:
   \hline
 \end{longtable}
 
-\subsubsection{Doubles following a weak two opening}
+\subsection{Takeout doubles over a weak two opening}
 
 The \emph{lebensohl} convention is used after a double of a weak
 two opening (or when \emph{RHO} raises opener's suit to the two
@@ -1833,7 +1833,7 @@ Responses to the double are:
   \hline
 \end{longtable}
 
-\subsubsection{Negative doubles}
+\subsection{Negative doubles}
 
 A \emph{negative} double after an opponent overcalls one of a major
 implies possession of four cards in the other major and sufficient
@@ -1900,7 +1900,7 @@ could pass with \hhand{5,A76,AKJ3,QT942} or \hhand{983,Q,AK865,KQJ9}
 (but not with \hhand{QT65,9,AKT,KT32} where the correct bid would be
 to support one of partner's implied suits with \sp{2}).
 
-\subsubsection{Responsive doubles}
+\subsection{Responsive doubles}
 
 A \emph{responsive} double is used when the opponents have bid and
 raised a suit and partner has either doubled or overcalled in between. For
@@ -1972,15 +1972,28 @@ If you have a ``real'' penalty double of the opponent's contract, you cannot mak
 an immediate double. You must pass and hope that partner is strong enough to
 reopen with a double which you can then pass.
 
-\subsubsection{\emph{Lightner} doubles of slam contracts}
+\subsection{\emph{Lightner} doubles of slam contracts}
 
-A double of a slam contract is a \emph{Lightner} double requesting an
+A double of a slam contract by a defender who is not on lead
+is a \emph{Lightner} double requesting an
 unusual lead from partner. This is most often bid when you have a void in a
 side suit, or sometimes \emph{AQ} or \emph{KQ} in the suit bid by the dummy.
-Partner is expected to find the correct lead, which might be unusual
-from his viewpoint; in any case, he should not lead a trump.
-The most common interpretation is to lead the first suit (other than
-trumps) bid by the opponents.
+
+It asks partner not to lead trumps or a suit bid by the defenders. Instead, he is
+requested to lead one of:
+\begin{itemize}
+\item Dummy's side suit if one has been bid.
+\item Declarer's side suit if one has been bid.
+\item Any other unusual lead---usually his longest suit to get a ruff.
+\end{itemize}
+
+The \emph{Lightner} double is \excp{not in effect if the opponents are sacrificing at
+the 6 or 7-level}.
+
+There is also a negative inference that can be drawn when partner does not
+double. For example, if opponents bid a side suit on the way to slam and
+partner does not double, it is an indication that partner does not want a lead
+of the side suit.
 
 \subsection{Defence against a no-trump opening}
 
@@ -2052,9 +2065,10 @@ game interest and partner rebids as follows:
 \subsubsection{After a weak no-trump opening}
 
 The \emph{Cappelletti} system is employed over a weak no-trump (\excp{only if you
-have not passed previously---with a passed hand, use the \emph{Meckwell} convention}). As
-compared to the \emph{Meckwell} convention, this has the advantage of
-retaining a double for penalties.
+have not passed previously---with a passed hand, use the \emph{Meckwell}
+convention described above}). As
+opposed to the \emph{Meckwell} convention, the \emph{Cappelleti} system
+has the advantage of retaining a double for penalties.
 
 \begin{longtable}{ p{1.5cm}p{9.5cm}}
   \hline
@@ -2190,10 +2204,16 @@ the control is based on shortness or strength. The response is again
 in steps---the first step showing that the previous response was based
 on \emph{shortness} and the second step showing \emph{strength}.
 
-If the first $\epsilon$ bid is at the level of \cl{5} or higher, \excp{a
-compressed scale of responses is used} where the first step shows no
-control, second step shows second-round control and the third step
-shows first-round control.
+If \excp{the first $\epsilon$ bid is at the level of \cl{5} or higher, a
+compressed scale of responses is used}:
+\begin{longtable}{p{1.5cm}p{9.5cm}}
+  \multicolumn{2}{l}{\emph{Compressed responses to a $epsilon$ suit control-asking bid}} \\
+  \hline
+  \emph{1 step} & No control---\emph{Jxx} or worse. \\
+  \emph{2 steps} & Second round control---\emph{K} or singleton. \\
+  \emph{3 steps} & First round control---\emph{A} or void. \\
+  \hline
+\end{longtable}
 
 \subsection{\emph{Bergen} raises}
 
