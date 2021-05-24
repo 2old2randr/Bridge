@@ -48,13 +48,13 @@
 \newcommand{\playernumber}{}
 
 %General approach:
-\newcommand{\generalapproach}{Precision}
+\newcommand{\generalapproach}{Precision Club}
 %\setboolean{gf}{true} %2/1 Game Forcing
 \setboolean{gfewsr}{true}
 %\setbooleab{vlop}{true} %Very light...
 %\setboolean{vl3h}{true}
 %\setboolean{vloc}{true}
-%\setboolean{vlpr}{true}
+\setboolean{vlpr}{true}
 \setboolean{fo1c}{true} %Forcing openings...
 %\setboolean{fo2c}{true}
 \setboolean{fon2b}{true}
@@ -88,7 +88,7 @@
 \setboolean{leben}{true}
 \newcommand{\ntlebentext}{Fast} %Lebensohl: Fast or slow denies?
 \setboolean{ntneg}{true}
-\newcommand{\ntnegtext}{Weak NT} %Negative doubles over 1NT?
+\newcommand{\ntnegtext}{vs. Strong NT} %Negative doubles over 1NT?
 \newcommand{\ntothertext}{Meckwell, Cappelletti} %Other conventions over 1NT
 
 %2NT/3NT openings
@@ -119,7 +119,7 @@
 \setboolean{ra2nt}{true} %Jacoby
 \setboolean{ra3nt}{true} %1M-3NT
 \setboolean{raspl}{true} %Splinter
-\newcommand{\majraisetext}{Bergen} %Text line for Bergen, fitjumps, etc
+\newcommand{\majraisetext}{Bergen raises} %Text line for Bergen, fitjumps, etc
 \setboolean{ntfor}{true} %1NT forcing
 %\setboolean{ntsem}{true} %1NT semiforcing
 \setboolean{twonf}{true}
@@ -141,7 +141,7 @@
 %\setboolean{cl2nf}{true}
 \setboolean{clcon}{true}
 \newcommand{\clopennote}{16+} % Insert text in blank space next to 1C
-\newcommand{\diopennote}{can be 2} % Insert text in blank space next to 1D e.g. ``4 unless 4-4-3-2'' 
+\newcommand{\diopennote}{may be short} % Insert text in blank space next to 1D e.g. ``4 unless 4-4-3-2'' 
 %\setboolean{diam4}{true} %1D length
 \setboolean{diam3}{true}
 %\setboolean{di2nf}{true}
@@ -192,9 +192,9 @@
 \setboolean{dintf}{true} %2NT forcing
 %\setboolean{dnsnf}{true} %new suit NF
 %2H:
-\newcommand{\twohlowtext}{8}
+\newcommand{\twohlowtext}{6}
 \newcommand{\twohhightext}{10}
-\newcommand{\twohdescribe}{6-card}
+\newcommand{\twohdescribe}{6-card suit}
 \newcommand{\twohresponse}{}
 %\setboolean{wk2he}{true}
 %\setboolean{in2he}{true}
@@ -203,9 +203,9 @@
 \setboolean{hentf}{true}
 %\setboolean{hnsnf}{true}
 %2S:
-\newcommand{\twoslowtext}{8}
+\newcommand{\twoslowtext}{6}
 \newcommand{\twoshightext}{10}
-\newcommand{\twosdescribe}{6-card}
+\newcommand{\twosdescribe}{6-card suit}
 \newcommand{\twosresponse}{}
 %\setboolean{wk2sp}{true}
 %\setboolean{in2sp}{true}
@@ -221,7 +221,7 @@
 \newcommand{\twowaytext}{}
 %\setboolean{wjsnc}{true} %Weak jump shifts
 \newcommand{\wjstext}{}
-\setboolean{fsfrd}{true} %Fourth suit
+%\setboolean{fsfrd}{true} %Fourth suit
 %\setboolean{fsfgf}{true}
 \newcommand{\footnotestop}{} % 3 lines for additional conventions at bottom
 \newcommand{\footnotesmiddle}{}
@@ -280,9 +280,9 @@
 \newcommand{\cuebidtext}{} %other cuebid comments
 
 %Competitive bidding column - NT overcalls
-\newcommand{\directlowtext}{14} %range
-\newcommand{\directhightext}{16}
-%\setboolean{syson}{true} %systems on
+\newcommand{\directlowtext}{15} %range
+\newcommand{\directhightext}{17}
+\setboolean{syson}{true} %systems on
 %\setboolean{dntco}{true}
 \newcommand{\directconvtext}{} %info line re direct overcalls
 \newcommand{\ballowtext}{14} %balancing range
@@ -312,14 +312,14 @@
 %\setboolean{nsf1l}{true} %New suit forcing?
 %\setboolean{nsf2l}{true}
 %\setboolean{jsfor}{true} %Jump shifts
-\setboolean{jsinv}{true}
+%\setboolean{jsinv}{true}
 \setboolean{jswea}{true}
-%\setboolean{xximp}{true} %Rdbl implies no fit
+\setboolean{xximp}{true} %Rdbl implies no fit
 \setboolean{maunl}{true} %Jordan
 %\setboolean{malim}{true}
 %\setboolean{mawea}{true}
-%\setboolean{miunl}{true}
-\setboolean{milim}{true}
+\setboolean{miunl}{true}
+%\setboolean{milim}{true}
 %\setboolean{miwea}{true}
 \newcommand{\xxtext}{} %Blank space next to Rdbl implies no fit. Can write in ``any 10+'' 
 \newcommand{\toxothertext}{} %Line at bottom of Opps TOX section
@@ -329,7 +329,7 @@
 \newcommand{\opdtothru}{3\s} %Takeout through...
 %\setboolean{oppen}{true}
 \newcommand{\opconvtakeout}{} %Conv Takeout line
-%\setboolean{opleb}{true} %Lebensohl
+\setboolean{opleb}{true} %Lebensohl
 \newcommand{\opothertext}{} %Other line
 
 %Slam conventions
@@ -340,7 +340,7 @@
 \setboolean{dopi}{true}
 %\setboolean{depo}{true}
 \setboolean{ropi}{true}
-\newcommand{\slamtexttop}{} %Two lines for slam convention info
+\newcommand{\slamtexttop}{Coontrol-asking bids} %Two lines for slam convention info
 \newcommand{\slamtextbottom}{}
 \newcommand{\dopilevel}{} %DOPI/ROPI level
 
