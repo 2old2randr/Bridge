@@ -1,0 +1,419 @@
+% grbbridge: a package of LaTeX macros for typesetting bridge
+%
+% Experiment added 10 December 2013: ``general auction'', ``bidprob'', support for ``all pass''
+
+% Version 2.1.1, released 05 September 2013
+% Version 2.1, in development 20 August 2013
+% Version 2.0, released 23 November 2011
+
+% Version history:
+% 	Version 1 was an experiment from several years ago never released to the public.
+%   Version 2.0 was released 23 November 2011, providing vhand, hhand, auction, the handdiagram environment, and the deal float.
+%	  Version 2.1 was released xx xxxx, enhancing vhand, and providing the ability to display several vhands with referenceable headers.
+%   Version 2.1.1 improved alignment of North, table marker, and South in hand diagrams.
+%   Version 2.2 added support for auctions that don't end in ``pass pass pass''; displaying single suit combinations; different spacing options in inline and hand diagrams; reimplemented the show/hide compass routine in \handdiagram.
+
+\RequirePackage{xstring}
+\RequirePackage{ifthen}
+\ProvidesPackage{grbbridge}
+
+% Bids: the logical implementation is \bid{level,denomination}, but we are lazy.
+
+% WTF was \sp before I did this?!
+
+\newcommand{\cl}[1]{\mbox{#1\ensuremath{\clubsuit}}}%
+\newcommand{\di}[1]{\mbox{#1\ensuremath{\diamondsuit}}}%
+\newcommand{\he}[1]{\mbox{#1\ensuremath{\heartsuit}}}%
+\renewcommand{\sp}[1]{\mbox{#1\ensuremath{\spadesuit}}}%
+\newcommand{\nt}[1]{\mbox{#1\textsc{nt}}}%
+
+% Holdings: display a set of cards - probably not very useful since we want to expand different ways later
+
+\newcommand{\clubs}[1]{\mbox{\ensuremath{\clubsuit}#1}}%
+\newcommand{\diamonds}[1]{\mbox{\ensuremath{\diamondsuit}#1}}%
+\newcommand{\hearts}[1]{\mbox{\ensuremath{\heartsuit}#1}}%
+\newcommand{\spades}[1]{\mbox{\ensuremath{\spadesuit}#1}}%
+
+%parsesuit splits up a string into 4 suits, which we can now do as we please with
+\newcommand{\parsesuit}[1]{%
+\StrBefore{#1}{,}[\raws]%
+\StrBetween[1,2]{#1}{,}{,}[\rawh]%
+\StrBetween[2,3]{#1}{,}{,}[\rawd]%
+\StrBehind[3]{#1}{,}[\rawc]%
+}
+%These boolean flags can customize how hands are displayed
+\newboolean{spellten}
+\newboolean{leadingspace}
+\newboolean{betweencards}
+\newboolean{nolinebreak}
+\setboolean{spellten}{false}
+\setboolean{leadingspace}{false}
+\setboolean{betweencards}{false}
+\setboolean{nolinebreak}{false}
+\newcommand{\voidsymbol}{---}
+%New in v2.2: we keep track of handdiagram vs. inline boolean choices.
+\newboolean{hdsettings}
+\newboolean{hdspellten}
+\newboolean{hdleadingspace}
+\newboolean{hdbetweencards}
+\newboolean{oldspellten}
+\newboolean{oldleadingspace}
+\newboolean{oldbetweencards}
+\setboolean{hdsettings}{false}
+\setboolean{hdspellten}{true}
+\setboolean{hdleadingspace}{true}
+\setboolean{hdbetweencards}{true}
+
+%Temporarily we provide just ``spread a suit'', with no capacity to handle odd characters
+%i.e., betweencards=true only works on the obvious symbols
+%mostly used internally, but I didn't hide it in case for some odd reason one wanted to use it directly.
+\newcommand{\spreadasuit}[1]{%
+\StrSubstitute{#1}{A}{ A}[\tstring]%
+\StrSubstitute{\tstring}{K}{ K}[\tstring]%
+\StrSubstitute{\tstring}{Q}{ Q}[\tstring]%
+\StrSubstitute{\tstring}{J}{ J}[\tstring]%
+\StrSubstitute{\tstring}{T}{ T}[\tstring]%
+\StrSubstitute{\tstring}{10}{ 10}[\tstring]%
+\StrSubstitute{\tstring}{9}{ 9}[\tstring]%
+\StrSubstitute{\tstring}{8}{ 8}[\tstring]%
+\StrSubstitute{\tstring}{7}{ 7}[\tstring]%
+\StrSubstitute{\tstring}{6}{ 6}[\tstring]%
+\StrSubstitute{\tstring}{5}{ 5}[\tstring]%
+\StrSubstitute{\tstring}{4}{ 4}[\tstring]%
+\StrSubstitute{\tstring}{3}{ 3}[\tstring]%
+\StrSubstitute{\tstring}{2}{ 2}[\tstring]%
+\StrSubstitute{\tstring}{x}{ x}[\tstring]%
+\StrGobbleLeft{\tstring}{1}[\tstring]%
+}
+
+%formatonesuit applies betweencards, leadingspace, and spellten to one suit at a time.
+%mostly used internally
+\newcommand{\formatonesuit}[1]{%
+%\def\one@suit{#1}
+\ifthenelse{\boolean{betweencards}}{\gdef\tstring{}%
+\spreadasuit{#1}%
+\def\one@suit{\tstring}}{\def\one@suit{#1}}%
+%\ifthenelse{\boolean}{betweencards} not implemented yet
+\ifthenelse{\boolean{leadingspace}}{ }{}%
+\ifthenelse{\boolean{spellten}}{\IfEq{\one@suit}{}{\voidsymbol}{\StrSubstitute{\one@suit}{T}{10}}} {\IfEq{\one@suit}{}{\voidsymbol}{\one@suit}}%
+}
+
+%hhand: intended for routine use in inline text. Allows line breaks only between suits.
+\newcommand{\hhand}[1]{\parsesuit{#1}%
+\ifthenelse{\boolean{nolinebreak}}{\mbox{\spades{\formatonesuit{\raws}} \hearts{\formatonesuit{\rawh}}
+	\diamonds{\formatonesuit{\rawd}} \clubs{\formatonesuit{\rawc}}}}
+{\spades{\formatonesuit{\raws}} \hearts{\formatonesuit{\rawh}}
+	\diamonds{\formatonesuit{\rawd}} \clubs{\formatonesuit{\rawc}}}%
+	}
+
+%vhand: intended for routine use to display a small number of single hands, with no fancy formatting around them.
+%This will become an ELEMENT of a whole-hand or two-hands environment.
+
+%In version 2.1, an optional argument was added to vhand to enable placing a label above a single hand.
+\newcommand{\vhand}[2][NoShow]{\parsesuit{#2}%
+\begin{tabular}{l}%
+\IfEq{#1}{NoShow}{}{\textbf{#1}\\}%
+\spades{\formatonesuit{\raws}}\\%
+\hearts{\formatonesuit{\rawh}}\\%
+\diamonds{\formatonesuit{\rawd}}\\%
+\clubs{\formatonesuit{\rawc}}%
+\end{tabular}}
+
+%New in V2.2: a simple way to display a single card combination
+\newcommand{\cardcomb}[1]{%
+\parsesuit{#1}%
+\begin{tabular}{ccc}%
+& \raws & \\
+\rawc & & \rawh \\
+& \rawd & \\ \end{tabular}}
+
+%The handdiagram environment will display any or all of 4 hands, a compass, and a vul/dealer/board# indicator.
+%Syntax:
+%\begin{environment}
+%\north{cards,,,} \west{cards,,,} \east{cards,,,} \west{cards...}
+%\vul{o|n|e|b} \dealer{n|e|s|w} \boardnum{number}
+%\end{environment}
+%
+%To suppress the compass, use \hidecompass. To restore it use \showcompass.
+%In v2.2, \hidecompass and \showcompass are still supported, but so is \setboolean{\compasshide}{true|false}.
+
+%Boardnum will automatically fill in vul and dealer if given an integer 1-32 as its argument. This can be overridden by
+%executing \vul or \dealer AFTER \boardnum.
+
+\newcommand{\north}[1]{\def \northcards {#1}}
+\newcommand{\south}[1]{\def \southcards {#1}}
+%\newcommand{\east}[1](\def \eastcards {#1}}
+%\newcommand{\west}[1]{\def \westcards {#1}}
+\newcommand{\east}[2][NoShow]{\def \eastcards {#2} \def \eastcardlabel {#1} }
+\newcommand{\west}[2][NoShow]{\def \westcards {#2} \def \westcardlabel {#1} }
+
+\newcommand{\vul}[1]{\IfEqCase{#1}{%
+{o}{\def \vulstring {None vul}}
+{n}{\def \vulstring {NS vul}}
+{e}{\def \vulstring {EW vul}}
+{b}{\def \vulstring {Both vul}}}}
+\newcommand{\dealer}[1]{\IfEqCase{#1}{%
+{n}{\def \dealerstring {North dealer}}
+{e}{\def \dealerstring {East dealer}}
+{s}{\def \dealerstring {South dealer}}
+{w}{\def \dealerstring {West dealer}}}}
+
+\newcommand{\boardnum}[1]{\IfInteger{#1}{
+\def \boardnumstring {Board #1}%
+\IfEqCase{#1}{%
+{1}{\vul{o}\dealer{n}}
+{2}{\vul{n}\dealer{e}}
+{3}{\vul{e}\dealer{s}}
+{4}{\vul{b}\dealer{w}}
+{5}{\vul{n}\dealer{n}}
+{6}{\vul{e}\dealer{e}}
+{7}{\vul{b}\dealer{s}}
+{8}{\vul{o}\dealer{w}}
+{9}{\vul{e}\dealer{n}}
+{10}{\vul{b}\dealer{e}}
+{11}{\vul{o}\dealer{s}}
+{12}{\vul{n}\dealer{w}}
+{13}{\vul{b}\dealer{n}}
+{14}{\vul{o}\dealer{e}}
+{15}{\vul{n}\dealer{s}}
+{16}{\vul{e}\dealer{w}}
+{17}{\vul{o}\dealer{n}}
+{18}{\vul{n}\dealer{e}}
+{19}{\vul{e}\dealer{s}}
+{20}{\vul{b}\dealer{w}}
+{21}{\vul{n}\dealer{n}}
+{22}{\vul{e}\dealer{e}}
+{23}{\vul{b}\dealer{s}}
+{24}{\vul{o}\dealer{w}}
+{25}{\vul{e}\dealer{n}}
+{26}{\vul{b}\dealer{e}}
+{27}{\vul{o}\dealer{s}}
+{28}{\vul{n}\dealer{w}}
+{29}{\vul{b}\dealer{n}}
+{30}{\vul{o}\dealer{e}}
+{31}{\vul{n}\dealer{s}}
+{32}{\vul{e}\dealer{w}}}}{\def \boardnumstring {#1}}}
+
+%\newcommand{\hidecompass}{\def \compasshide {yes}}
+%\newcommand{\showcompass}{\def \compasshide {no}}
+\newboolean{compasshide}
+\newcommand{\hidecompass}{\setboolean{compasshide}{true}}
+\newcommand{\showcompass}{\setboolean{compasshide}{false}}
+
+\showcompass
+
+\newenvironment{handdiagram}%[Right now it takes no arguments]%
+{\def \northcards {NoShow}%
+\def \westcards {NoShow}%
+\def \eastcards {NoShow}%
+\def \southcards {NoShow}%
+\def \dealerstring {NoShow}%
+\def \vulstring {NoShow}%
+\def \boardnumstring {NoShow}%
+%New in v2.2, it checks when opening the environment to see if it needs to change the display settings:
+\ifthenelse{\boolean{hdsettings}}{%
+\ifthenelse{\boolean{spellten}}{\setboolean{oldspellten}{true}}{\setboolean{oldspellten}{false}}
+\ifthenelse{\boolean{betweencards}}{\setboolean{oldbetweencards}{true}}{\setboolean{oldbetweencards}{false}}
+\ifthenelse{\boolean{leadingspace}}{\setboolean{oldleadingspace}{true}}{\setboolean{oldleadingspace}{false}}
+\ifthenelse{\boolean{hdspellten}}{\setboolean{spellten}{true}}{\setboolean{spellten}{false}}
+\ifthenelse{\boolean{hdbetweencards}}{\setboolean{betweencards}{true}}{\setboolean{betweencards}{false}}
+\ifthenelse{\boolean{hdspellten}}{\setboolean{leadingspace}{true}}{\setboolean{leadingspace}{false}}}{}%
+}%Right now it doesn't do anything fancy at the start, but at the END of the environment, it processes all the commands it has received:
+{%
+%Changed 01 Sep 13: {clc} not {ccc}, so North and South align if only one has a long suit.
+\begin{tabular}{clc}
+%Upper left: info box
+\IfEq{\boardnumstring\dealerstring\vulstring}{NoShowNoShowNoShow}{}{%
+\begin{tabular}{l}
+\IfEq{\boardnumstring}{NoShow}{}{\boardnumstring\\}%
+\IfEq{\dealerstring}{NoShow}{}{\dealerstring\\}%
+\IfEq{\vulstring}{NoShow}{}{\vulstring\\}%
+\end{tabular}}%
+& 
+%Top center: North
+\IfEq{\northcards}{NoShow}{}{\vhand{\northcards}}%
+&
+\\
+%Middle left: West
+\IfEq{\westcards}{NoShow}{}{\vhand{\westcards}}%
+&
+%Center: Hand diagram\
+%\IfEq{\compasshide}{yes}{}{
+\ifthenelse{\boolean{compasshide}}{}{
+\IfEq{\northcards\westcards\eastcards\southcards}{NoShowNoShowNoShowNoShow}{}{%
+\enspace\fbox{%enspace added 05 Sep 13 to look better after ccc->clc change.
+\begin{tabular}{@{}c@{ }c@{ }c@{}} 
+&\IfEq{\northcards}{NoShow}{ }{N}&\\
+\IfEq{\westcards}{NoShow}{ }{W}& &\IfEq{\eastcards}{NoShow}{ }{E}\\
+&\IfEq{\southcards}{NoShow}{ }{S}&\\
+\end{tabular}
+}}}
+%\end{center}%
+&
+%Middle right: East
+\IfEq{\eastcards}{NoShow}{}{\vhand{\eastcards}}%
+\\
+%Bottom left blank
+& 
+%Bottom center: South
+\IfEq{\southcards}{NoShow}{}{\vhand{\southcards}}%
+& 
+%Bottom right blank
+\\
+\end{tabular}%
+%New in v2.2, if the display settings were changed, they need to be changed back:
+\ifthenelse{\boolean{hdsettings}}{%
+\ifthenelse{\boolean{oldspellten}}{\setboolean{spellten}{true}}{\setboolean{spellten}{false}}
+\ifthenelse{\boolean{oldbetweencards}}{\setboolean{betweencards}{true}}{\setboolean{betweencards}{false}}
+\ifthenelse{\boolean{oldleadingspace}}{\setboolean{leadingspace}{true}}{\setboolean{leadingspace}{false}}}{}%
+}
+
+%The twohands environment is a simplified way to display just two hands side by side wrapped in a neat little box.
+%Not yet implemented
+
+%The below works, if you use the ``new'' versions of \east and \west, but I dont like it.
+%I want to generalize to adding labels above n hands, and deciding how much space to leave between labels and the hands.
+
+\newenvironment{twohands}{}{%
+\begin{tabular}{cc}
+\IfEq{\westcardlabel\eastcardlabel}{NoShowNoShow}{}{%
+\IfEq{\westcardlabel}{NoShow}{}{\westcardlabel} & \IfEq{\eastcardlabel}{NoShow}{}{\eastcardlabel} \\}
+\vhand{\westcards} & \vhand{\eastcards} \\
+\end{tabular}
+}
+
+%Normally we will want to wrap a hand diagram inside a float with a caption and a figure number:
+%Whether you want the rules above and below, and want captions above or below, is up to you.
+
+\RequirePackage{float}
+\floatstyle{ruled}
+\newfloat{deal}{htb}{lod}
+\floatname{deal}{Deal}
+
+%AUCTION: a command to automatically format an auction into a nice table
+
+\newcommand{\dblstring}{Double}
+\newcommand{\rdblstring}{Rdbl}
+
+% Up to version 2.1.1, \auction hard-coded ``,p,p,p'' at the end of every auction
+%
+%\newcommand{\auction}[2][NoShow]{%
+%\gdef \seat@counter {0} %GDEF not DEF is important, otherwise it can't see the counter inside-vs-outside the for loop
+%\begin{tabular}{llll}
+%West&North&East&South\\%
+%\IfEq{#1}{NoShow}{}{%
+%\@for \thislabel:=#1 \do {\textit{\thislabel} \incrementcounter}%
+%\IfEq{\seat@counter}{0}{}{\gdef seat@counter {0} \\}%
+%}%
+%\@for \thisbid:=#2,p,p,p \do {\printable{\thisbid} \incrementcounter }
+%\end{tabular}
+%}
+
+\newcommand{\genauction}[3][NoShow]{%
+\gdef \seat@counter {0} %GDEF not DEF is important, otherwise it can't see the counter inside-vs-outside the for loop
+\begin{tabular}{llll}
+West&North&East&South\\%
+\IfEq{#1}{NoShow}{}{%
+\@for \thislabel:=#1 \do {\textit{\thislabel} \incrementcounter}%
+\IfEq{\seat@counter}{0}{}{\gdef seat@counter {0} \\}%
+}%
+\edef\long@auction{#2#3}%
+\@for \thisbid:=\long@auction  \do {\printable{\thisbid} \incrementcounter }
+\end{tabular}
+}
+
+\newcommand{\auctionending}{,p,p,p}
+\newcommand{\auction}[2][NoShow]{%
+\genauction[#1]{#2}{\auctionending}}
+
+\newcommand{\bidprob}[2][NoShow]{%
+\genauction[#1]{#2}{,?}}
+\newcommand{\auctionpart}[2][NoShow]{%
+\genauction[#1]{#2}{}}
+
+\newcommand{\incrementcounter}{%
+\IfStrEqCase{\seat@counter}{{0}{%
+\gdef \seat@counter {1} &}{1}{%
+\gdef \seat@counter {2} &}{2}{%
+\gdef \seat@counter {3} &}{3}{%
+\gdef \seat@counter {0} \\}}%
+}
+
+%New in v.2.2: two-person auctions, NS or EW:
+\newcommand{\nsauction}[2][NoShow]{%
+\gdef \seat@counter {0} %GDEF not DEF is important, otherwise it can't see the counter inside-vs-outside the for loop
+\begin{tabular}{ll}
+North&South\\%
+\IfEq{#1}{NoShow}{}{%
+\@for \thislabel:=#1 \do {\textit{\thislabel} \twopersoncounter}%
+\IfEq{\seat@counter}{0}{}{\gdef seat@counter {0} \\}%
+}%
+\@for \thisbid:=#2  \do {\printable{\thisbid} \twopersoncounter }
+\end{tabular}
+}
+\newcommand{\ewauction}[2][NoShow]{%
+\gdef \seat@counter {0} %GDEF not DEF is important, otherwise it can't see the counter inside-vs-outside the for loop
+\begin{tabular}{ll}
+West&East\\%
+\IfEq{#1}{NoShow}{}{%
+\@for \thislabel:=#1 \do {\textit{\thislabel} \twopersoncounter}%
+\IfEq{\seat@counter}{0}{}{\gdef seat@counter {0} \\}%
+}%
+\@for \thisbid:=#2  \do {\printable{\thisbid} \twopersoncounter }
+\end{tabular}
+}
+\newcommand{\twopersoncounter}{%
+\IfStrEqCase{\seat@counter}{{0}{%
+\gdef \seat@counter {1} &}{1}{%
+\gdef \seat@counter {0} \\}}%
+}
+%Support for ap=''All Pass'' added in v2.2
+\newcommand{\printable}[1]{%
+\StrLeft{#1}{1}[\first@char]%
+\StrMid{#1}{2}{2}[\second@char]%
+\StrGobbleLeft{#1}{2}[\minus@two]%
+\IfStrEqCase{\first@char}{%
+{p}{Pass\second@char\minus@two}
+{a}{\IfStrEq{\second@char}{p}{All Pass\minus@two}{a\second@char\minsu@two}}
+{x}{\IfStrEq{\second@char}{x}{\rdblstring\minus@two}{\dblstring\second@char\minus@two}}
+{1}{\IfStrEqCase{\second@char}{{c}{\cl{1}\minus@two}{d}{\di{1}\minus@two}{h}{\he{1}\minus@two}{s}{\sp{1}\minus@two}{n}{1NT\minus@two}}[#1]}
+{2}{\IfStrEqCase{\second@char}{{c}{\cl{2}\minus@two}{d}{\di{2}\minus@two}{h}{\he{2}\minus@two}{s}{\sp{2}\minus@two}{n}{2NT\minus@two}}[#1]}
+{3}{\IfStrEqCase{\second@char}{{c}{\cl{3}\minus@two}{d}{\di{3}\minus@two}{h}{\he{3}\minus@two}{s}{\sp{3}\minus@two}{n}{3NT\minus@two}}[#1]}
+{4}{\IfStrEqCase{\second@char}{{c}{\cl{4}\minus@two}{d}{\di{4}\minus@two}{h}{\he{4}\minus@two}{s}{\sp{4}\minus@two}{n}{4NT\minus@two}}[#1]}
+{5}{\IfStrEqCase{\second@char}{{c}{\cl{5}\minus@two}{d}{\di{5}\minus@two}{h}{\he{5}\minus@two}{s}{\sp{5}\minus@two}{n}{5NT\minus@two}}[#1]}
+{6}{\IfStrEqCase{\second@char}{{c}{\cl{6}\minus@two}{d}{\di{6}\minus@two}{h}{\he{6}\minus@two}{s}{\sp{6}\minus@two}{n}{6NT\minus@two}}[#1]}
+{7}{\IfStrEqCase{\second@char}{{c}{\cl{7}\minus@two}{d}{\di{7}\minus@two}{h}{\he{7}\minus@two}{s}{\sp{7}\minus@two}{n}{7NT\minus@two}}[#1]}}[#1]}
+
+
+
+
+
+
+%newhandtype: the ability to define new hand types with references, rather than using \vhand repeatedly
+%syntax: \newhandtype{commandname,display text,label format,reset criterion}
+%example \newhandtype{opener}{Opener}{arabic}{section} provides \opener[optional label]{s,h,d,c}, as for \vhand{s,h,d,c}
+
+\newcommand{\newhandtype}[4]{%
+\IfEq{#4}{never}{\newcounter{#1}}{\newcounter{#1}[#4]}%
+\setcounter{#1}{0}%
+\expandafter\newcommand\csname format#1\endcsname {#3}% Stores the kind of formatting in a variable
+\expandafter\renewcommand\csname the#1\endcsname{\expandafter\csname\csname format#1\endcsname\endcsname {#1}}%Formats the references.
+\expandafter\newcommand\csname #1\endcsname [2][GenericLabel]{%
+\expandafter\parsesuit{##2}% --- the doubled # is the key to making this work.
+\begin{tabular}{l}%
+\refstepcounter{#1}%
+%Apply a label if the user requests one.
+%Generating automatic labels causes collisions if the counter gets reset in the next section, so we only provide these if 
+%you set the reset criterion to ``never''.
+\IfEq{##1}{GenericLabel}{\IfEq{#4}{never}{\label{#1\expandafter\csname\csname format#1\endcsname\endcsname {#1}}}{}}{\label{##1}}%
+%\IfEq{##1}{GenericLabel}{\label{#1\expandafter\csname\csname format#1\endcsname\endcsname {#1}}}{}%
+\underline{\textbf{#2 \expandafter\csname\csname format#1\endcsname\endcsname {#1}}}\\
+\spades{\formatonesuit{\raws}}\\%
+\hearts{\formatonesuit{\rawh}}\\%
+\diamonds{\formatonesuit{\rawd}}\\%
+\clubs{\formatonesuit{\rawc}}%
+\end{tabular}}%
+}
+
+
+
