@@ -20,19 +20,20 @@
 % Bids: the logical implementation is \bid{level,denomination}, but we are lazy.
 
 % WTF was \sp before I did this?!
-
-\newcommand{\cl}[1]{\mbox{#1\ensuremath{\clubsuit}}}%
-\newcommand{\di}[1]{\mbox{#1\ensuremath{\diamondsuit}}}%
-\newcommand{\he}[1]{\mbox{#1\ensuremath{\heartsuit}}}%
-\renewcommand{\sp}[1]{\mbox{#1\ensuremath{\spadesuit}}}%
-\newcommand{\nt}[1]{\mbox{#1\textsc{nt}}}%
+\usepackage{ascii}
+\usepackage[dvipsnames]{xcolor}
+\newcommand{\Cl}[1]{\mbox{#1{\large\textcolor{black}{\ENQ}}}}%
+\newcommand{\Di}[1]{\mbox{#1{\large\textcolor{red}{\EOT}}}}%
+\newcommand{\He}[1]{\mbox{#1{\large\textcolor{red}{\ETX}}}}%
+\newcommand{\Sp}[1]{\mbox{#1{\large\textcolor{black}{\ACK}}}}%
+\newcommand{\Nt}[1]{\mbox{#1\textsc{nt}}}%
 
 % Holdings: display a set of cards - probably not very useful since we want to expand different ways later
 
-\newcommand{\clubs}[1]{\mbox{\ensuremath{\clubsuit}#1}}%
-\newcommand{\diamonds}[1]{\mbox{\ensuremath{\diamondsuit}#1}}%
-\newcommand{\hearts}[1]{\mbox{\ensuremath{\heartsuit}#1}}%
-\newcommand{\spades}[1]{\mbox{\ensuremath{\spadesuit}#1}}%
+\newcommand{\clubs}[1]{\mbox{{\large\textcolor{black}{\ENQ}}#1}}%
+\newcommand{\diamonds}[1]{\mbox{{\large\textcolor{red}{\EOT}}#1}}%
+\newcommand{\hearts}[1]{\mbox{{\large\textcolor{red}{\ETX}}#1}}%
+\newcommand{\spades}[1]{\mbox{{\large\textcolor{black}{\ACK}}#1}}%
 
 %parsesuit splits up a string into 4 suits, which we can now do as we please with
 \newcommand{\parsesuit}[1]{%
@@ -376,13 +377,13 @@ West&East\\%
 {p}{Pass\second@char\minus@two}
 {a}{\IfStrEq{\second@char}{p}{All Pass\minus@two}{a\second@char\minsu@two}}
 {x}{\IfStrEq{\second@char}{x}{\rdblstring\minus@two}{\dblstring\second@char\minus@two}}
-{1}{\IfStrEqCase{\second@char}{{c}{\cl{1}\minus@two}{d}{\di{1}\minus@two}{h}{\he{1}\minus@two}{s}{\sp{1}\minus@two}{n}{1NT\minus@two}}[#1]}
-{2}{\IfStrEqCase{\second@char}{{c}{\cl{2}\minus@two}{d}{\di{2}\minus@two}{h}{\he{2}\minus@two}{s}{\sp{2}\minus@two}{n}{2NT\minus@two}}[#1]}
-{3}{\IfStrEqCase{\second@char}{{c}{\cl{3}\minus@two}{d}{\di{3}\minus@two}{h}{\he{3}\minus@two}{s}{\sp{3}\minus@two}{n}{3NT\minus@two}}[#1]}
-{4}{\IfStrEqCase{\second@char}{{c}{\cl{4}\minus@two}{d}{\di{4}\minus@two}{h}{\he{4}\minus@two}{s}{\sp{4}\minus@two}{n}{4NT\minus@two}}[#1]}
-{5}{\IfStrEqCase{\second@char}{{c}{\cl{5}\minus@two}{d}{\di{5}\minus@two}{h}{\he{5}\minus@two}{s}{\sp{5}\minus@two}{n}{5NT\minus@two}}[#1]}
-{6}{\IfStrEqCase{\second@char}{{c}{\cl{6}\minus@two}{d}{\di{6}\minus@two}{h}{\he{6}\minus@two}{s}{\sp{6}\minus@two}{n}{6NT\minus@two}}[#1]}
-{7}{\IfStrEqCase{\second@char}{{c}{\cl{7}\minus@two}{d}{\di{7}\minus@two}{h}{\he{7}\minus@two}{s}{\sp{7}\minus@two}{n}{7NT\minus@two}}[#1]}}[#1]}
+{1}{\IfStrEqCase{\second@char}{{c}{\Cl{1}\minus@two}{d}{\Di{1}\minus@two}{h}{\He{1}\minus@two}{s}{\Sp{1}\minus@two}{n}{1NT\minus@two}}[#1]}
+{2}{\IfStrEqCase{\second@char}{{c}{\Cl{2}\minus@two}{d}{\Di{2}\minus@two}{h}{\He{2}\minus@two}{s}{\Sp{2}\minus@two}{n}{2NT\minus@two}}[#1]}
+{3}{\IfStrEqCase{\second@char}{{c}{\Cl{3}\minus@two}{d}{\Di{3}\minus@two}{h}{\He{3}\minus@two}{s}{\Sp{3}\minus@two}{n}{3NT\minus@two}}[#1]}
+{4}{\IfStrEqCase{\second@char}{{c}{\Cl{4}\minus@two}{d}{\Di{4}\minus@two}{h}{\He{4}\minus@two}{s}{\Sp{4}\minus@two}{n}{4NT\minus@two}}[#1]}
+{5}{\IfStrEqCase{\second@char}{{c}{\Cl{5}\minus@two}{d}{\Di{5}\minus@two}{h}{\He{5}\minus@two}{s}{\Sp{5}\minus@two}{n}{5NT\minus@two}}[#1]}
+{6}{\IfStrEqCase{\second@char}{{c}{\Cl{6}\minus@two}{d}{\Di{6}\minus@two}{h}{\He{6}\minus@two}{s}{\Sp{6}\minus@two}{n}{6NT\minus@two}}[#1]}
+{7}{\IfStrEqCase{\second@char}{{c}{\Cl{7}\minus@two}{d}{\Di{7}\minus@two}{h}{\He{7}\minus@two}{s}{\Sp{7}\minus@two}{n}{7NT\minus@two}}[#1]}}[#1]}
 
 
 
@@ -414,6 +415,4 @@ West&East\\%
 \clubs{\formatonesuit{\rawc}}%
 \end{tabular}}%
 }
-
-
 
